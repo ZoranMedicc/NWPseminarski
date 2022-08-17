@@ -12,7 +12,12 @@
 #define IDS_STRING_OPIS                 133
 #define IDS_STRING_RADNI_NALOG          134
 #define IDD_DIALOG_POPIS_ZAPOSLENKA     310
+#define IDD_DIALOG_DODAJ_RADNIKA        312
 #define IDC_LIST1                       1000
+#define IDC_EDIT1                       1001
+#define IDC_EDIT2                       1005
+#define IDC_EDIT3                       1006
+#define IDC_EDIT4                       1007
 #define ID_ZAPOSLENICI_POPIS            32771
 #define ID_ZAPOSLENICI_DODAJ            32772
 
@@ -20,9 +25,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        312
+#define _APS_NEXT_RESOURCE_VALUE        314
 #define _APS_NEXT_COMMAND_VALUE         32773
-#define _APS_NEXT_CONTROL_VALUE         1001
+#define _APS_NEXT_CONTROL_VALUE         1002
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

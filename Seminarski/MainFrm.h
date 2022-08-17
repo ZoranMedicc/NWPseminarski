@@ -40,6 +40,7 @@ protected:
 
 public:
 	afx_msg void OnZaposleniciPopis2();
+	afx_msg void OnZaposleniciDodaj();
 };
 
 

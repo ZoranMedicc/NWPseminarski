@@ -6,6 +6,7 @@
 #include "framework.h"
 #include "Seminarski.h"
 #include "CPopisZaposlenikaDlg.h"
+#include "CDodajRadnikaDlg.h"
 #include "MainFrm.h"
 
 #ifdef _DEBUG
@@ -19,6 +20,7 @@ IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
 	ON_COMMAND(ID_ZAPOSLENICI_POPIS, &CMainFrame::OnZaposleniciPopis2)
+	ON_COMMAND(ID_ZAPOSLENICI_DODAJ, &CMainFrame::OnZaposleniciDodaj)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -106,4 +108,12 @@ void CMainFrame::OnZaposleniciPopis2()
 	// TODO: Add your command handler code here
 	CPopisZaposlenikaDlg PopisDlg;
 	PopisDlg.DoModal();
+}
+
+
+void CMainFrame::OnZaposleniciDodaj()
+{
+	// TODO: Add your command handler code here
+	CDodajRadnikaDlg DodajRadnikaDlg;
+	DodajRadnikaDlg.DoModal();
 }
