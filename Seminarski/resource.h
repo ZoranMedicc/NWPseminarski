@@ -14,10 +14,11 @@
 #define IDD_DIALOG_POPIS_ZAPOSLENKA     310
 #define IDD_DIALOG_DODAJ_RADNIKA        312
 #define IDC_LIST1                       1000
-#define IDC_EDIT1                       1001
-#define IDC_EDIT2                       1005
-#define IDC_EDIT3                       1006
+#define IDC_EDIT_IME                    1001
+#define IDC_EDIT_PREZIME                1005
+#define IDC_EDIT_ODJEL                  1006
 #define IDC_EDIT4                       1007
+#define IDC_EDIT_RADNO_MJESTO           1007
 #define ID_ZAPOSLENICI_POPIS            32771
 #define ID_ZAPOSLENICI_DODAJ            32772
 

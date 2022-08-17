@@ -21,4 +21,10 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnBnClickedDodaj();
+	CString m_Ime;
+	CString m_Prezime;
+	CString m_Odjel;
+	CString m_RadnoMjesto;
 };

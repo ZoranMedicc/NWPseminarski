@@ -192,6 +192,7 @@
     <ClInclude Include="Seminarski.h" />
     <ClInclude Include="SeminarskiDoc.h" />
     <ClInclude Include="SeminarskiView.h" />
+    <ClInclude Include="SetPopis.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -208,6 +209,7 @@
     <ClCompile Include="Seminarski.cpp" />
     <ClCompile Include="SeminarskiDoc.cpp" />
     <ClCompile Include="SeminarskiView.cpp" />
+    <ClCompile Include="SetPopis.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
