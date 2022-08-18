@@ -11,6 +11,7 @@
 #define IDS_STRING_RADNO_MJESTO         132
 #define IDS_STRING_OPIS                 133
 #define IDS_STRING_RADNI_NALOG          134
+#define IDS_STRING_ZAPOS_ID             135
 #define IDD_DIALOG_POPIS_ZAPOSLENKA     310
 #define IDD_DIALOG_DODAJ_RADNIKA        312
 #define IDC_LIST1                       1000

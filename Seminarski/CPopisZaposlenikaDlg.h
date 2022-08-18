@@ -23,6 +23,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnZaposleniciPopis();
+	BOOL OnInitDialog();
+	void PokaziTablicu();
+	void PokaziListu();
 	CListCtrl ListCtrl;
 
 	CString m_Ime;

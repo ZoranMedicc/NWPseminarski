@@ -17,7 +17,7 @@ SetPopis::SetPopis(CDatabase* pdb) : CRecordset(pdb)
 
 CString SetPopis::GetDefaultConnect()
 {
-	return _T("DSN=RadniSati;");
+	return _T("DSN=seminarski;");
 }
 
 CString SetPopis::GetDefaultSQL()

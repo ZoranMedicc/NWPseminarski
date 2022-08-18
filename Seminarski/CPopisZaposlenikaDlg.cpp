@@ -5,6 +5,7 @@
 #include "Seminarski.h"
 #include "afxdialogex.h"
 #include "CPopisZaposlenikaDlg.h"
+#include "SetPopis.h"
 
 
 // CPopisZaposlenikaDlg dialog
@@ -45,3 +46,53 @@ void CPopisZaposlenikaDlg::OnZaposleniciPopis() {
 	PopisZaposlenikaDlg.DoModal();
 }
 
+BOOL CPopisZaposlenikaDlg::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+	PokaziTablicu();
+	PokaziListu();
+	return TRUE;  // return TRUE unless you set the focus to a control
+				  // EXCEPTION: OCX Property Pages should return FALSE
+}
+
+
+void CPopisZaposlenikaDlg::PokaziTablicu()
+{
+	CString s;
+
+	s.LoadString(IDS_STRING_ZAPOS_ID);
+	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
+	s.LoadString(IDS_STRING_IME);
+	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 250);
+	s.LoadString(IDS_STRING_PREZIME);
+	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 130);
+	s.LoadString(IDS_STRING_ODJEL);
+	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 160);
+	s.LoadString(IDS_STRING_RADNO_MJESTO);
+	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 160);
+}
+
+void CPopisZaposlenikaDlg::PokaziListu()
+{
+	SetPopis RecSetPopis;
+	RecSetPopis.Open();
+
+	while (!RecSetPopis.IsEOF())
+	{
+		const int index = ListCtrl.GetItemCount();
+
+		CString s;
+		s.Format(_T("%d"), RecSetPopis.m_rb);
+		ListCtrl.InsertItem(index, s);
+		ListCtrl.SetItemText(index, 1, RecSetPopis.m_Ime);
+		ListCtrl.SetItemText(index, 2, RecSetPopis.m_Prezime);
+		ListCtrl.SetItemText(index, 3, RecSetPopis.m_Odjel);
+		ListCtrl.SetItemText(index, 4, RecSetPopis.m_RadnoMjesto);
+
+		RecSetPopis.MoveNext();
+	}
+
+	RecSetPopis.Close();
+
+	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
+}
