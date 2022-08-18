@@ -6,6 +6,7 @@
 #include "afxdialogex.h"
 #include "CPopisZaposlenikaDlg.h"
 #include "SetPopis.h"
+#include "CDodajRadnikaDlg.h"
 
 
 // CPopisZaposlenikaDlg dialog
@@ -35,6 +36,7 @@ void CPopisZaposlenikaDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CPopisZaposlenikaDlg, CDialogEx)
 	ON_COMMAND(ID_ZAPOSLENICI_POPIS, &CPopisZaposlenikaDlg::OnZaposleniciPopis)
+	ON_BN_CLICKED(IDOK, &CPopisZaposlenikaDlg::OnBnClickedDodajRadnika)
 END_MESSAGE_MAP()
 
 
@@ -61,15 +63,15 @@ void CPopisZaposlenikaDlg::PokaziTablicu()
 	CString s;
 
 	s.LoadString(IDS_STRING_ZAPOS_ID);
-	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
+	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 80);
 	s.LoadString(IDS_STRING_IME);
-	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 250);
+	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 150);
 	s.LoadString(IDS_STRING_PREZIME);
-	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 130);
+	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 150);
 	s.LoadString(IDS_STRING_ODJEL);
-	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 160);
+	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 100);
 	s.LoadString(IDS_STRING_RADNO_MJESTO);
-	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 160);
+	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 180);
 }
 
 void CPopisZaposlenikaDlg::PokaziListu()
@@ -82,7 +84,7 @@ void CPopisZaposlenikaDlg::PokaziListu()
 		const int index = ListCtrl.GetItemCount();
 
 		CString s;
-		s.Format(_T("%d"), RecSetPopis.m_rb);
+		s.Format(_T("%d"), RecSetPopis.m_id);
 		ListCtrl.InsertItem(index, s);
 		ListCtrl.SetItemText(index, 1, RecSetPopis.m_Ime);
 		ListCtrl.SetItemText(index, 2, RecSetPopis.m_Prezime);
@@ -95,4 +97,13 @@ void CPopisZaposlenikaDlg::PokaziListu()
 	RecSetPopis.Close();
 
 	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
+}
+
+void CPopisZaposlenikaDlg::OnBnClickedDodajRadnika()
+{
+	// TODO: Add your control notification handler code here
+	CDodajRadnikaDlg dlgNoviRadnik;
+	dlgNoviRadnik.DoModal();
+	ListCtrl.DeleteAllItems();
+	PokaziListu();
 }

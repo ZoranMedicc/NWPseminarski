@@ -23,8 +23,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedDodaj();
-	CString m_Ime;
-	CString m_Prezime;
-	CString m_Odjel;
-	CString m_RadnoMjesto;
+	void UnesiNovogRadnika();
+	CEdit m_Ime;
+	CEdit m_Prezime;
+	CEdit m_Odjel;
+	CEdit m_RadnoMjesto;
 };

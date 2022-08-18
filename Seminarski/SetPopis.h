@@ -19,7 +19,7 @@ public:
 	// (Note: You must use an ODBC driver version that is version 3.5 or greater
 	// to support both Unicode and these conversions).
 
-	long m_rb;
+	long m_id;
 	CString m_Ime;
 	CString m_Prezime;
 	CString m_Odjel;

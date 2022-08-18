@@ -29,7 +29,7 @@ void SetPopis::DoFieldExchange(CFieldExchange* pFX)
 {
 	pFX->SetFieldType(CFieldExchange::outputColumn);
 
-	RFX_Long(pFX, _T("[ID]"), m_rb);
+	RFX_Long(pFX, _T("[ID]"), m_id);
 	RFX_Text(pFX, _T("[Ime]"), m_Ime);
 	RFX_Text(pFX, _T("[Prezime]"), m_Prezime);
 	RFX_Text(pFX, _T("[Odjel]"), m_Odjel);
@@ -55,5 +55,5 @@ void SetPopis::Dump(CDumpContext& dc) const
 long SetPopis::MaxID()
 {
 	MoveLast();
-	return m_rb;
+	return m_id;
 }
