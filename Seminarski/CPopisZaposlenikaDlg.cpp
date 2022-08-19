@@ -7,6 +7,7 @@
 #include "CPopisZaposlenikaDlg.h"
 #include "SetPopis.h"
 #include "CDodajRadnikaDlg.h"
+#include "UrediRadnikaDlg.h"
 
 
 // CPopisZaposlenikaDlg dialog
@@ -37,6 +38,7 @@ void CPopisZaposlenikaDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CPopisZaposlenikaDlg, CDialogEx)
 	ON_COMMAND(ID_ZAPOSLENICI_POPIS, &CPopisZaposlenikaDlg::OnZaposleniciPopis)
 	ON_BN_CLICKED(IDOK, &CPopisZaposlenikaDlg::OnBnClickedDodajRadnika)
+	ON_BN_CLICKED(IDC_BUTTON_UREDI, &CPopisZaposlenikaDlg::OnBnClickedButtonUredi)
 END_MESSAGE_MAP()
 
 
@@ -106,4 +108,39 @@ void CPopisZaposlenikaDlg::OnBnClickedDodajRadnika()
 	dlgNoviRadnik.DoModal();
 	ListCtrl.DeleteAllItems();
 	PokaziListu();
+}
+
+
+void CPopisZaposlenikaDlg::OnBnClickedButtonUredi()
+{
+	// TODO: Add your control notification handler code here
+	UrediRadnikaDlg dlgUrediRadnika;
+	CString s;
+
+	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
+	if (pos == NULL)
+	{
+		s.LoadString(IDS_STRING_OBAVEZAN_ODABIR);
+		MessageBox(s);
+	}
+	else
+	{
+		while (pos)
+		{
+			int nItem = ListCtrl.GetNextSelectedItem(pos);
+			m_Ime = ListCtrl.GetItemText(nItem, 1);
+			m_Prezime = ListCtrl.GetItemText(nItem, 2);
+			m_Odjel = ListCtrl.GetItemText(nItem, 3);
+			m_RadnoMjesto = ListCtrl.GetItemText(nItem, 4);
+		}
+
+		dlgUrediRadnika.m_Ime = m_Ime;
+		dlgUrediRadnika.m_Prezime = m_Prezime;
+		dlgUrediRadnika.m_Odjel = m_Odjel;
+		dlgUrediRadnika.m_RadnoMjesto = m_RadnoMjesto;
+
+		dlgUrediRadnika.DoModal();
+		ListCtrl.DeleteAllItems();
+		PokaziListu();
+	}
 }

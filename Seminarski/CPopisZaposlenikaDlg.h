@@ -33,6 +33,7 @@ public:
 	CString m_Odjel;
 	CString m_RadnoMjesto;
 	afx_msg void OnBnClickedDodajRadnika();
+	afx_msg void OnBnClickedButtonUredi();
 };
 
 

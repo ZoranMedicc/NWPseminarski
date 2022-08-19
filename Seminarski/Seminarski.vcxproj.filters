@@ -51,6 +51,9 @@
     <ClInclude Include="SetPopis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="UrediRadnikaDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Seminarski.cpp">
@@ -78,6 +81,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SetPopis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UrediRadnikaDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

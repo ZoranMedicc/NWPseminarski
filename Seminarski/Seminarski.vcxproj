@@ -195,6 +195,7 @@
     <ClInclude Include="SetPopis.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="UrediRadnikaDlg.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CDodajRadnikaDlg.cpp" />
@@ -211,6 +212,7 @@
     <ClCompile Include="SeminarskiView.cpp" />
     <ClCompile Include="SetPopis.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="UrediRadnikaDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Seminarski.rc" />

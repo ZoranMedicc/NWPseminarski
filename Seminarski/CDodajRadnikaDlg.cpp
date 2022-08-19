@@ -46,8 +46,8 @@ void CDodajRadnikaDlg::OnBnClickedDodaj()
 {
 	// TODO: Add your control notification handler code here
 	CheckEmptySpace();
-	UnesiNovogRadnika();
-	//EndDialog(IDOK);
+	//UnesiNovogRadnika();
+	
 }
 
 void CDodajRadnikaDlg::CheckEmptySpace() {
@@ -55,6 +55,7 @@ void CDodajRadnikaDlg::CheckEmptySpace() {
 	CEdit* editBoxPrezime = (CEdit*)GetDlgItem(IDC_EDIT_PREZIME);
 	CEdit* editBoxOdjel = (CEdit*)GetDlgItem(IDC_EDIT_ODJEL);
 	CEdit* editBoxRadnoMjesto = (CEdit*)GetDlgItem(IDC_EDIT_RADNO_MJESTO);
+	
 
 	if (editBoxIme && editBoxPrezime && editBoxOdjel && editBoxOdjel && editBoxRadnoMjesto == NULL)
 		return;
@@ -66,13 +67,13 @@ void CDodajRadnikaDlg::CheckEmptySpace() {
 	editBoxOdjel->GetWindowTextW(strOdjel);
 	CString strRadnoMjesto;
 	editBoxRadnoMjesto->GetWindowTextW(strRadnoMjesto);
-
+	CString s;
 	if (strIme.IsEmpty() || strPrezime.IsEmpty() || strOdjel.IsEmpty() || strRadnoMjesto.IsEmpty())
 	{
-		AfxMessageBox(_T("Imate prazno polje!"), MB_RETRYCANCEL);
+		AfxMessageBox((IDS_STRING_OBAVEZAN_UNOS), MB_RETRYCANCEL);
 	}
 	else
-		EndDialog(IDOK);
+		UnesiNovogRadnika();
 }
 
 
@@ -113,6 +114,7 @@ void CDodajRadnikaDlg::UnesiNovogRadnika()
 
 	RecSetPopis.Update();
 	RecSetPopis.Close();
+	EndDialog(IDOK);
 }
 
 
