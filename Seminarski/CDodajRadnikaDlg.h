@@ -23,6 +23,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnBnClickedDodaj();
+	void CheckEmptySpace();
 	void UnesiNovogRadnika();
 	CEdit m_Ime;
 	CEdit m_Prezime;
