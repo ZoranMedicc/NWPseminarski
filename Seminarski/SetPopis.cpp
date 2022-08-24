@@ -6,7 +6,7 @@ IMPLEMENT_DYNAMIC(SetPopis, CRecordset)
 
 SetPopis::SetPopis(CDatabase* pdb) : CRecordset(pdb)
 {
-	long m_rb = 0;
+	long m_id = 0;
 	CString m_Ime = _T("");
 	CString m_Prezime = _T("");
 	CString m_Odjel = _T("");

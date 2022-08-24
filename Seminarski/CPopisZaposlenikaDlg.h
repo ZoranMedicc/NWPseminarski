@@ -27,13 +27,19 @@ public:
 	void PokaziTablicu();
 	void PokaziListu();
 	CListCtrl ListCtrl;
-
+	long m_zaposleniciID;
 	CString m_Ime;
 	CString m_Prezime;
 	CString m_Odjel;
 	CString m_RadnoMjesto;
+	CString m_Nalog;
+	long m_RadniSati;
+	CString m_Opis;
 	afx_msg void OnBnClickedDodajRadnika();
 	afx_msg void OnBnClickedButtonUredi();
+	void PokaziSate();
+	afx_msg void OnBnClickedButtonRadniSati();
+	CString m_Datum;
 };
 
 

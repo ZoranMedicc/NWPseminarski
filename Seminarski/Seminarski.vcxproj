@@ -188,11 +188,13 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PopisRadnihSatiDlg.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Seminarski.h" />
     <ClInclude Include="SeminarskiDoc.h" />
     <ClInclude Include="SeminarskiView.h" />
     <ClInclude Include="SetPopis.h" />
+    <ClInclude Include="SetRadniSati.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="UrediRadnikaDlg.h" />
@@ -207,10 +209,12 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="PopisRadnihSatiDlg.cpp" />
     <ClCompile Include="Seminarski.cpp" />
     <ClCompile Include="SeminarskiDoc.cpp" />
     <ClCompile Include="SeminarskiView.cpp" />
     <ClCompile Include="SetPopis.cpp" />
+    <ClCompile Include="SetRadniSati.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="UrediRadnikaDlg.cpp" />
   </ItemGroup>
