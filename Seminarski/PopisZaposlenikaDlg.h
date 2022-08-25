@@ -4,13 +4,13 @@
 
 // CPopisZaposlenikaDlg dialog
 
-class CPopisZaposlenikaDlg : public CDialogEx
+class PopisZaposlenikaDlg : public CDialogEx
 {
-	DECLARE_DYNAMIC(CPopisZaposlenikaDlg)
+	DECLARE_DYNAMIC(PopisZaposlenikaDlg)
 
 public:
-	CPopisZaposlenikaDlg(CWnd* pParent = nullptr);   // standard constructor
-	virtual ~CPopisZaposlenikaDlg();
+	PopisZaposlenikaDlg(CWnd* pParent = nullptr);   // standard constructor
+	virtual ~PopisZaposlenikaDlg();
 
 // Dialog Data
 #ifdef AFX_DESIGN_TIME

@@ -183,25 +183,29 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CDodajRadnikaDlg.h" />
-    <ClInclude Include="CPopisZaposlenikaDlg.h" />
+    <ClInclude Include="DodajRadnikaDlg.h" />
+    <ClInclude Include="PopisZaposlenikaDlg.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="PopisOdaberiRadniNalog.h" />
     <ClInclude Include="PopisRadnihSatiDlg.h" />
+    <ClInclude Include="PopisRadniNalogDlg.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Seminarski.h" />
     <ClInclude Include="SeminarskiDoc.h" />
     <ClInclude Include="SeminarskiView.h" />
     <ClInclude Include="SetPopis.h" />
+    <ClInclude Include="SetRadniNalog.h" />
     <ClInclude Include="SetRadniSati.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="UrediRadneSateDlg.h" />
     <ClInclude Include="UrediRadnikaDlg.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CDodajRadnikaDlg.cpp" />
-    <ClCompile Include="CPopisZaposlenikaDlg.cpp" />
+    <ClCompile Include="DodajRadnikaDlg.cpp" />
+    <ClCompile Include="PopisZaposlenikaDlg.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -209,13 +213,17 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="PopisOdaberiRadniNalog.cpp" />
     <ClCompile Include="PopisRadnihSatiDlg.cpp" />
+    <ClCompile Include="PopisRadniNalogDlg.cpp" />
     <ClCompile Include="Seminarski.cpp" />
     <ClCompile Include="SeminarskiDoc.cpp" />
     <ClCompile Include="SeminarskiView.cpp" />
     <ClCompile Include="SetPopis.cpp" />
+    <ClCompile Include="SetRadniNalog.cpp" />
     <ClCompile Include="SetRadniSati.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="UrediRadneSateDlg.cpp" />
     <ClCompile Include="UrediRadnikaDlg.cpp" />
   </ItemGroup>
   <ItemGroup>

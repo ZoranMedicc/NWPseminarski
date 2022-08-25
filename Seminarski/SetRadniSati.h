@@ -1,5 +1,3 @@
-// PrimkeSet.h : Declaration of the PrimkeSet
-
 #pragma once
 #include <afxdb.h>
 

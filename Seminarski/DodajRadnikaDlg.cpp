@@ -4,27 +4,27 @@
 #include "pch.h"
 #include "Seminarski.h"
 #include "afxdialogex.h"
-#include "CDodajRadnikaDlg.h"
+#include "DodajRadnikaDlg.h"
 #include "SetPopis.h"
-#include "CPopisZaposlenikaDlg.h"
+#include "PopisZaposlenikaDlg.h"
 
 
 // CDodajRadnikaDlg dialog
 
-IMPLEMENT_DYNAMIC(CDodajRadnikaDlg, CDialogEx)
+IMPLEMENT_DYNAMIC(DodajRadnikaDlg, CDialogEx)
 
-CDodajRadnikaDlg::CDodajRadnikaDlg(CWnd* pParent /*=nullptr*/)
+DodajRadnikaDlg::DodajRadnikaDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_DIALOG_DODAJ_RADNIKA, pParent)
 
 {
 
 }
 
-CDodajRadnikaDlg::~CDodajRadnikaDlg()
+DodajRadnikaDlg::~DodajRadnikaDlg()
 {
 }
 
-void CDodajRadnikaDlg::DoDataExchange(CDataExchange* pDX)
+void DodajRadnikaDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_EDIT_IME, m_Ime);
@@ -34,15 +34,15 @@ void CDodajRadnikaDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CDodajRadnikaDlg, CDialogEx)
-	ON_BN_CLICKED(IDOK, &CDodajRadnikaDlg::OnBnClickedDodaj)
+BEGIN_MESSAGE_MAP(DodajRadnikaDlg, CDialogEx)
+	ON_BN_CLICKED(IDOK, &DodajRadnikaDlg::OnBnClickedDodaj)
 END_MESSAGE_MAP()
 
 
 // CDodajRadnikaDlg message handlers
 
 
-void CDodajRadnikaDlg::OnBnClickedDodaj()
+void DodajRadnikaDlg::OnBnClickedDodaj()
 {
 	// TODO: Add your control notification handler code here
 	CheckEmptySpace();
@@ -50,7 +50,7 @@ void CDodajRadnikaDlg::OnBnClickedDodaj()
 	
 }
 
-void CDodajRadnikaDlg::CheckEmptySpace() {
+void DodajRadnikaDlg::CheckEmptySpace() {
 	CEdit* editBoxIme = (CEdit*)GetDlgItem(IDC_EDIT_IME);
 	CEdit* editBoxPrezime = (CEdit*)GetDlgItem(IDC_EDIT_PREZIME);
 	CEdit* editBoxOdjel = (CEdit*)GetDlgItem(IDC_EDIT_ODJEL);
@@ -77,7 +77,7 @@ void CDodajRadnikaDlg::CheckEmptySpace() {
 }
 
 
-void CDodajRadnikaDlg::UnesiNovogRadnika()
+void DodajRadnikaDlg::UnesiNovogRadnika()
 {
 
 	SetPopis RecSetPopis;

@@ -1,11 +1,11 @@
 #pragma once
 #include <afxdb.h>
 
-class SetPopis : public CRecordset
+class SetRadniNalog : public CRecordset
 {
 public:
-	SetPopis(CDatabase* pDatabase = NULL);
-	DECLARE_DYNAMIC(SetPopis)
+	SetRadniNalog(CDatabase* pDatabase = NULL);
+	DECLARE_DYNAMIC(SetRadniNalog)
 
 	// Field/Param Data
 
@@ -18,10 +18,7 @@ public:
 	// to support both Unicode and these conversions).
 
 	long m_id;
-	CString m_Ime;
-	CString m_Prezime;
-	CString m_Odjel;
-	CString m_RadnoMjesto;
+	CString m_RadniNalog;
 
 	// Overrides
 		// Wizard generated virtual function overrides

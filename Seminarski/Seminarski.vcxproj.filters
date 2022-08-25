@@ -39,13 +39,13 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CPopisZaposlenikaDlg.h">
+    <ClInclude Include="PopisZaposlenikaDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CDodajRadnikaDlg.h">
+    <ClInclude Include="DodajRadnikaDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SetPopis.h">
@@ -58,6 +58,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SetRadniSati.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UrediRadneSateDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PopisOdaberiRadniNalog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PopisRadniNalogDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SetRadniNalog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -77,13 +89,13 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CPopisZaposlenikaDlg.cpp">
+    <ClCompile Include="PopisZaposlenikaDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CDodajRadnikaDlg.cpp">
+    <ClCompile Include="DodajRadnikaDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SetPopis.cpp">
@@ -96,6 +108,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SetRadniSati.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UrediRadneSateDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PopisOdaberiRadniNalog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PopisRadniNalogDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SetRadniNalog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

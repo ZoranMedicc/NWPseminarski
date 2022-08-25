@@ -5,8 +5,8 @@
 #include "Seminarski.h"
 #include "afxdialogex.h"
 #include "UrediRadnikaDlg.h"
-#include "CPopisZaposlenikaDlg.h"
-#include "CDodajRadnikaDlg.h"
+#include "PopisZaposlenikaDlg.h"
+#include "DodajRadnikaDlg.h"
 #include "SetPopis.h"
 
 

@@ -4,9 +4,9 @@
 #include "pch.h"
 #include "Seminarski.h"
 #include "afxdialogex.h"
-#include "CPopisZaposlenikaDlg.h"
+#include "PopisZaposlenikaDlg.h"
 #include "SetPopis.h"
-#include "CDodajRadnikaDlg.h"
+#include "DodajRadnikaDlg.h"
 #include "UrediRadnikaDlg.h"
 #include "PopisRadnihSatiDlg.h"
 #include "SetRadniSati.h"
@@ -14,19 +14,19 @@
 
 // CPopisZaposlenikaDlg dialog
 
-IMPLEMENT_DYNAMIC(CPopisZaposlenikaDlg, CDialogEx)
+IMPLEMENT_DYNAMIC(PopisZaposlenikaDlg, CDialogEx)
 
-CPopisZaposlenikaDlg::CPopisZaposlenikaDlg(CWnd* pParent /*=nullptr*/)
+PopisZaposlenikaDlg::PopisZaposlenikaDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_DIALOG_POPIS_ZAPOSLENKA, pParent)
 {
 
 }
 
-CPopisZaposlenikaDlg::~CPopisZaposlenikaDlg()
+PopisZaposlenikaDlg::~PopisZaposlenikaDlg()
 {
 }
 
-void CPopisZaposlenikaDlg::DoDataExchange(CDataExchange* pDX)
+void PopisZaposlenikaDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_LIST1, ListCtrl);
@@ -37,23 +37,23 @@ void CPopisZaposlenikaDlg::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(CPopisZaposlenikaDlg, CDialogEx)
-	ON_COMMAND(ID_ZAPOSLENICI_POPIS, &CPopisZaposlenikaDlg::OnZaposleniciPopis)
-	ON_BN_CLICKED(IDOK, &CPopisZaposlenikaDlg::OnBnClickedDodajRadnika)
-	ON_BN_CLICKED(IDC_BUTTON_UREDI, &CPopisZaposlenikaDlg::OnBnClickedButtonUredi)
-	ON_BN_CLICKED(IDC_BUTTON_RADNI_SATI, &CPopisZaposlenikaDlg::OnBnClickedButtonRadniSati)
+BEGIN_MESSAGE_MAP(PopisZaposlenikaDlg, CDialogEx)
+	ON_COMMAND(ID_ZAPOSLENICI_POPIS, &PopisZaposlenikaDlg::OnZaposleniciPopis)
+	ON_BN_CLICKED(IDOK, &PopisZaposlenikaDlg::OnBnClickedDodajRadnika)
+	ON_BN_CLICKED(IDC_BUTTON_UREDI, &PopisZaposlenikaDlg::OnBnClickedButtonUredi)
+	ON_BN_CLICKED(IDC_BUTTON_RADNI_SATI, &PopisZaposlenikaDlg::OnBnClickedButtonRadniSati)
 END_MESSAGE_MAP()
 
 
 // CPopisZaposlenikaDlg message handlers
 
-void CPopisZaposlenikaDlg::OnZaposleniciPopis() {
+void PopisZaposlenikaDlg::OnZaposleniciPopis() {
 
-	CPopisZaposlenikaDlg PopisZaposlenikaDlg;
+	PopisZaposlenikaDlg PopisZaposlenikaDlg;
 	PopisZaposlenikaDlg.DoModal();
 }
 
-BOOL CPopisZaposlenikaDlg::OnInitDialog()
+BOOL PopisZaposlenikaDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 	PokaziTablicu();
@@ -64,7 +64,7 @@ BOOL CPopisZaposlenikaDlg::OnInitDialog()
 }
 
 
-void CPopisZaposlenikaDlg::PokaziTablicu()
+void PopisZaposlenikaDlg::PokaziTablicu()
 {
 	CString s;
 
@@ -80,7 +80,7 @@ void CPopisZaposlenikaDlg::PokaziTablicu()
 	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 180);
 }
 
-void CPopisZaposlenikaDlg::PokaziListu()
+void PopisZaposlenikaDlg::PokaziListu()
 {
 	SetPopis RecSetPopis;
 	RecSetPopis.Open();
@@ -105,17 +105,17 @@ void CPopisZaposlenikaDlg::PokaziListu()
 	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
 }
 
-void CPopisZaposlenikaDlg::OnBnClickedDodajRadnika()
+void PopisZaposlenikaDlg::OnBnClickedDodajRadnika()
 {
 	// TODO: Add your control notification handler code here
-	CDodajRadnikaDlg dlgNoviRadnik;
+	DodajRadnikaDlg dlgNoviRadnik;
 	dlgNoviRadnik.DoModal();
 	ListCtrl.DeleteAllItems();
 	PokaziListu();
 }
 
 
-void CPopisZaposlenikaDlg::OnBnClickedButtonUredi()
+void PopisZaposlenikaDlg::OnBnClickedButtonUredi()
 {
 	// TODO: Add your control notification handler code here
 	UrediRadnikaDlg dlgUrediRadnika;
@@ -179,7 +179,7 @@ void CPopisZaposlenikaDlg::OnBnClickedButtonUredi()
 //}
 
 
-void CPopisZaposlenikaDlg::OnBnClickedButtonRadniSati()
+void PopisZaposlenikaDlg::OnBnClickedButtonRadniSati()
 {
 	// TODO: Add your control notification handler code here
 	PopisRadnihSatiDlg dlgPopisRadnihSati;

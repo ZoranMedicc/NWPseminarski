@@ -9,6 +9,9 @@
 #include <iostream>
 #include <string>
 #include "SetPopis.h"
+#include "UrediRadneSateDlg.h"
+#include "PopisZaposlenikaDlg.h"
+#include "SetRadniNalog.h"
 
 
 
@@ -85,7 +88,7 @@ void PopisRadnihSatiDlg::PokaziRadneSate()
 			id++;
 			const int index = ListCtrl.GetItemCount();
 			CTime datum = RecSetRadniSati.m_Datum;
-			CString sDatum = datum.Format(_T("%d.%m.%Y."));
+			CString sDatum = datum.Format(_T("%d/%m/%Y"));
 
 			CString s, radniSati;
 			s.Format(_T("%d"), RecSetRadniSati.m_id);
@@ -105,4 +108,43 @@ void PopisRadnihSatiDlg::PokaziRadneSate()
 void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 {
 	// TODO: Add your control notification handler code here
+	UrediRadneSateDlg dlgUrediRadneSate;
+	SetRadniSati RcSetRadniSati;
+
+	CString s, radniSati, id;
+	radniSati.Format(_T("%d"), dlgUrediRadneSate.m_BrojSati);
+	//id.Format(_T("%d"), m_zaposleniciID);
+
+	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
+	if (pos == NULL)
+	{
+		s.LoadString(IDS_STRING_OBAVEZAN_UNOS);
+		MessageBox(s);
+	}
+	else
+	{
+		while (pos)
+		{
+			int nItem = ListCtrl.GetNextSelectedItem(pos);
+			id = ListCtrl.GetItemText(nItem, 0);
+			m_Datum2 = ListCtrl.GetItemText(nItem, 1);
+			radniSati = ListCtrl.GetItemText(nItem, 2);
+			m_Nalog = ListCtrl.GetItemText(nItem, 3);
+			m_Opis = ListCtrl.GetItemText(nItem, 4);
+
+
+		}
+
+		//dlgUrediRadneSate.m_id = _wtol(id);
+
+		COleDateTime dt;
+		dt.ParseDateTime(m_Datum2, 0UL, 1024UL);
+		dlgUrediRadneSate.m_Datum = dt;
+		dlgUrediRadneSate.m_BrojSati = radniSati;
+		dlgUrediRadneSate.m_RadniNalog = m_Nalog;
+		dlgUrediRadneSate.m_Opis = m_Opis;
+		dlgUrediRadneSate.DoModal();
+	}
+	ListCtrl.DeleteAllItems();
+	PokaziListu();
 }

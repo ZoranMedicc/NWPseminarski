@@ -4,13 +4,13 @@
 
 // CDodajRadnikaDlg dialog
 
-class CDodajRadnikaDlg : public CDialogEx
+class DodajRadnikaDlg : public CDialogEx
 {
-	DECLARE_DYNAMIC(CDodajRadnikaDlg)
+	DECLARE_DYNAMIC(DodajRadnikaDlg)
 
 public:
-	CDodajRadnikaDlg(CWnd* pParent = nullptr);   // standard constructor
-	virtual ~CDodajRadnikaDlg();
+	DodajRadnikaDlg(CWnd* pParent = nullptr);   // standard constructor
+	virtual ~DodajRadnikaDlg();
 
 // Dialog Data
 #ifdef AFX_DESIGN_TIME

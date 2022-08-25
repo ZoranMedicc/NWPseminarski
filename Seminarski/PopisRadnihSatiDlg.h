@@ -33,6 +33,7 @@ public:
 	long m_id;
 	int id = 0;
 	CTime m_Datum;
+	CString m_Datum2;
 	long m_BrojRadnihSati;
 	CString m_Nalog;
 	CString m_Opis;

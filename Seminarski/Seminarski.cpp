@@ -8,7 +8,7 @@
 #include "afxdialogex.h"
 #include "Seminarski.h"
 #include "MainFrm.h"
-#include "CPopisZaposlenikaDlg.h"
+#include "PopisZaposlenikaDlg.h"
 #include "SeminarskiDoc.h"
 #include "SeminarskiView.h"
 

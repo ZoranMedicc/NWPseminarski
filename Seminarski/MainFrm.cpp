@@ -5,8 +5,8 @@
 #include "pch.h"
 #include "framework.h"
 #include "Seminarski.h"
-#include "CPopisZaposlenikaDlg.h"
-#include "CDodajRadnikaDlg.h"
+#include "PopisZaposlenikaDlg.h"
+#include "DodajRadnikaDlg.h"
 #include "MainFrm.h"
 
 #ifdef _DEBUG
@@ -106,7 +106,7 @@ void CMainFrame::Dump(CDumpContext& dc) const
 void CMainFrame::OnZaposleniciPopis2()
 {
 	// TODO: Add your command handler code here
-	CPopisZaposlenikaDlg PopisDlg;
+	PopisZaposlenikaDlg PopisDlg;
 	PopisDlg.DoModal();
 }
 
@@ -114,6 +114,6 @@ void CMainFrame::OnZaposleniciPopis2()
 void CMainFrame::OnZaposleniciDodaj()
 {
 	// TODO: Add your command handler code here
-	CDodajRadnikaDlg DodajRadnikaDlg;
+	DodajRadnikaDlg DodajRadnikaDlg;
 	DodajRadnikaDlg.DoModal();
 }
