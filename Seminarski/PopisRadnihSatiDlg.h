@@ -38,4 +38,5 @@ public:
 	CString m_Nalog;
 	CString m_Opis;
 	afx_msg void OnBnClickedButtonUrediRadneSate();
+	afx_msg void OnBnClickedButtonDodajRadneSate();
 };

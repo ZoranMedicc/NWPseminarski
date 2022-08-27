@@ -27,7 +27,7 @@ public:
 	CString Odjel;
 	CString RadnoMjesto;
 	afx_msg
-		BOOL OnInitDialog();
+	BOOL OnInitDialog();
 	void OnBnClickedUredi();
 	CString m_Ime;
 	CString m_Prezime;

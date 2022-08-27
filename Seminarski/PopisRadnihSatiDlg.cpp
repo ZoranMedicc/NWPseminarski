@@ -12,6 +12,7 @@
 #include "UrediRadneSateDlg.h"
 #include "PopisZaposlenikaDlg.h"
 #include "SetRadniNalog.h"
+#include "DodajRadneSateDlg.h"
 
 
 
@@ -39,6 +40,7 @@ void PopisRadnihSatiDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(PopisRadnihSatiDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_UREDI_RADNE_SATE, &PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate)
+	ON_BN_CLICKED(IDC_BUTTON_DODAJ_RADNE_SATE, &PopisRadnihSatiDlg::OnBnClickedButtonDodajRadneSate)
 END_MESSAGE_MAP()
 
 // PopisRadnihSatiDlg message handlers
@@ -50,8 +52,7 @@ BOOL PopisRadnihSatiDlg::OnInitDialog()
 	PokaziListu();
 	PokaziRadneSate();
 
-	return TRUE;  // return TRUE unless you set the focus to a control
-				  // EXCEPTION: OCX Property Pages should return FALSE
+	return TRUE;
 }
 
 void PopisRadnihSatiDlg::PokaziListu()
@@ -143,8 +144,19 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 		dlgUrediRadneSate.m_BrojSati = radniSati;
 		dlgUrediRadneSate.m_RadniNalog = m_Nalog;
 		dlgUrediRadneSate.m_Opis = m_Opis;
-		dlgUrediRadneSate.DoModal();
+		//dlgUrediRadneSate.DoModal();
 	}
+	dlgUrediRadneSate.DoModal();
+	ListCtrl.DeleteAllItems();
+	PokaziListu();
+}
+
+
+void PopisRadnihSatiDlg::OnBnClickedButtonDodajRadneSate()
+{
+	// TODO: Add your control notification handler code here
+	DodajRadneSateDlg dlgNoviRadniSati;
+	dlgNoviRadniSati.DoModal();
 	ListCtrl.DeleteAllItems();
 	PokaziListu();
 }

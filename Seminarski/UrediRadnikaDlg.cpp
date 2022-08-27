@@ -61,40 +61,6 @@ BOOL UrediRadnikaDlg::OnInitDialog()
 
 
 
-//void UrediRadnikaDlg::OnBnClickedOk()
-//{
-//	// TODO: Add your control notification handler code here
-//	CDialogEx::OnOK();
-//
-//	SetPopis RecSetRadnici;
-//
-//	UpdateData(TRUE);
-//
-//	if (!RecSetRadnici.IsOpen())
-//	{
-//		RecSetRadnici.Open();
-//	}
-//
-//	while (!RecSetRadnici.IsBOF() && !RecSetRadnici.IsEOF())
-//	{
-//		if (Ime == RecSetRadnici.m_Ime)
-//		{
-//			RecSetRadnici.Edit();
-//
-//			RecSetRadnici.m_Ime = m_Ime;
-//			RecSetRadnici.m_Prezime = m_Prezime;
-//			RecSetRadnici.m_Odjel = m_Odjel;
-//			RecSetRadnici.m_RadnoMjesto = m_RadnoMjesto;
-//
-//			RecSetRadnici.Update();
-//			break;
-//		}
-//		RecSetRadnici.MoveNext();
-//	}
-//	EndDialog(IDOK);
-//}
-
-
 void UrediRadnikaDlg::OnBnClickedButtonUredi()
 {
 	// TODO: Add your control notification handler code here

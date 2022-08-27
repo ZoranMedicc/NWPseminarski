@@ -5,6 +5,9 @@
 #include "Seminarski.h"
 #include "afxdialogex.h"
 #include "UrediRadneSateDlg.h"
+#include "PopisOdaberiRadniNalog.h"
+#include "SetRadniSati.h"
+#include <ctime>
 
 
 // UrediRadneSate dialog
@@ -40,6 +43,7 @@ void UrediRadneSateDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(UrediRadneSateDlg, CDialogEx)
 	ON_NOTIFY(DTN_DATETIMECHANGE, IDC_DATETIMEPICKER_DATUM, &UrediRadneSateDlg::OnDtnDatetimechangeDatetimepickerDatum)
 	ON_BN_CLICKED(IDOK, &UrediRadneSateDlg::OnBnClickedSpremi)
+	ON_BN_CLICKED(IDC_BUTTON_EDIT_RADNI_NALOG, &UrediRadneSateDlg::OnBnClickedButtonEditRadniNalog)
 END_MESSAGE_MAP()
 
 
@@ -53,9 +57,67 @@ void UrediRadneSateDlg::OnDtnDatetimechangeDatetimepickerDatum(NMHDR* pNMHDR, LR
 	*pResult = 0;
 }
 
+BOOL UrediRadneSateDlg::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+
+	RadniNalog = m_RadniNalog;
+	Opis = m_Opis;
+	BrojSati = m_BrojSati;
+	Datum = m_Datum;
+
+	return TRUE;
+}
+
 
 void UrediRadneSateDlg::OnBnClickedSpremi()
 {
 	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
+
+	SetRadniSati RecSetRadniSati;
+	SYSTEMTIME d;
+	COleDateTime dt = m_Datum;
+	dt.GetAsSystemTime(d);
+	
+	UpdateData(TRUE);
+
+	if (!RecSetRadniSati.IsOpen())
+	{
+		RecSetRadniSati.Open();
+	}
+
+	while (!RecSetRadniSati.IsBOF() && !RecSetRadniSati.IsEOF())
+	{
+		if (Opis == RecSetRadniSati.m_Opis)
+		{
+			RecSetRadniSati.Edit();
+
+			RecSetRadniSati.m_Nalog = m_RadniNalog;
+			RecSetRadniSati.m_Opis = m_Opis;
+			RecSetRadniSati.m_BrojRadnihSati = _wtol(m_BrojSati);
+			RecSetRadniSati.m_Datum = CTime(dt);
+
+			RecSetRadniSati.Update();
+			break;
+		}
+		RecSetRadniSati.MoveNext();
+	}
+	EndDialog(IDOK);
+}
+
+
+void UrediRadneSateDlg::OnBnClickedButtonEditRadniNalog()
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+
+	PopisOdaberiRadniNalog dlgOdaberiRadniNalog;
+	dlgOdaberiRadniNalog.m_RadniNalog = m_RadniNalog;
+
+	if (dlgOdaberiRadniNalog.DoModal() == IDOK)
+	{
+		m_RadniNalog = dlgOdaberiRadniNalog.m_RadniNalog;
+		UpdateData(FALSE);
+	}
 }

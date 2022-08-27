@@ -24,12 +24,18 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnDtnDatetimechangeDatetimepickerDatum(NMHDR* pNMHDR, LRESULT* pResult);
+	BOOL OnInitDialog();
 	CDateTimeCtrl DateTimePicker;
 	CString m_BrojSati;
+	CString BrojSati;
 	CString m_Opis;
+	CString Opis;
 	afx_msg void OnBnClickedSpremi();
 	CButton m_edit_RadniNalog;
 	CString m_RadniNalog;
-	//CString m_Datum;
+	CString RadniNalog;
+	CString m_Datum2;
 	COleDateTime m_Datum;
+	COleDateTime Datum;
+	afx_msg void OnBnClickedButtonEditRadniNalog();
 };
