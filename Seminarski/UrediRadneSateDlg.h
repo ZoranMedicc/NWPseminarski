@@ -38,4 +38,5 @@ public:
 	COleDateTime m_Datum;
 	COleDateTime Datum;
 	afx_msg void OnBnClickedButtonEditRadniNalog();
+
 };

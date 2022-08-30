@@ -14,8 +14,6 @@
 #include "SetRadniNalog.h"
 #include "DodajRadneSateDlg.h"
 
-
-
 // PopisRadnihSatiDlg dialog
 
 IMPLEMENT_DYNAMIC(PopisRadnihSatiDlg, CDialogEx)
@@ -148,7 +146,7 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 	}
 	dlgUrediRadneSate.DoModal();
 	ListCtrl.DeleteAllItems();
-	PokaziListu();
+	PokaziRadneSate();
 }
 
 
@@ -158,5 +156,5 @@ void PopisRadnihSatiDlg::OnBnClickedButtonDodajRadneSate()
 	DodajRadneSateDlg dlgNoviRadniSati;
 	dlgNoviRadniSati.DoModal();
 	ListCtrl.DeleteAllItems();
-	PokaziListu();
+	PokaziRadneSate();
 }

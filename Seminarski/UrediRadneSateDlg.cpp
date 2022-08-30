@@ -74,7 +74,6 @@ void UrediRadneSateDlg::OnBnClickedSpremi()
 {
 	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
-
 	SetRadniSati RecSetRadniSati;
 	SYSTEMTIME d;
 	COleDateTime dt = m_Datum;
@@ -96,7 +95,7 @@ void UrediRadneSateDlg::OnBnClickedSpremi()
 			RecSetRadniSati.m_Nalog = m_RadniNalog;
 			RecSetRadniSati.m_Opis = m_Opis;
 			RecSetRadniSati.m_BrojRadnihSati = _wtol(m_BrojSati);
-			RecSetRadniSati.m_Datum = CTime(dt);
+			RecSetRadniSati.m_Datum = CTime(d);
 
 			RecSetRadniSati.Update();
 			break;
@@ -104,6 +103,7 @@ void UrediRadneSateDlg::OnBnClickedSpremi()
 		RecSetRadniSati.MoveNext();
 	}
 	EndDialog(IDOK);
+	
 }
 
 

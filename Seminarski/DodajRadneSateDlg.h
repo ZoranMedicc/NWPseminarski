@@ -24,8 +24,16 @@ protected:
 public:
 	afx_msg void OnDtnDatetimechangeDatetimepickerDatum(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnBnClickedButtonEditRadniNalog();
-	CString m_Opis;
-	CString m_BrojSati;
-	CString m_RadniNalog;
+	void CheckEmptySpace();
+	void OnBnClickedSpremi();
+	CEdit m_Opis;
+	CEdit m_BrojSati;
+	CEdit m_RadniNalog;
+	//CString m_Datum;
 	CButton m_edit_RadniNalog;
+	afx_msg void SpremiRadneSate();
+	COleDateTime m_Datum;
+	CDateTimeCtrl m_Date;
+	CDateTimeCtrl m_dateTimeCtrl;
+
 };
