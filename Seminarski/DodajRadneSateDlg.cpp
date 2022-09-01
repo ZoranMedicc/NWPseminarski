@@ -52,13 +52,22 @@ END_MESSAGE_MAP()
 void DodajRadneSateDlg::OnDtnDatetimechangeDatetimepickerDatum(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	LPNMDATETIMECHANGE pDTChange = reinterpret_cast<LPNMDATETIMECHANGE>(pNMHDR);
-	// TODO: Add your control notification handler code here
-	DATETIMEPICKERINFO dtpi = { 0 };
-	dtpi.cbSize = sizeof(DATETIMEPICKERINFO);
-	m_dateTimeCtrl.GetDateTimePickerInfo(&dtpi);
+	
+	this->m_Date.GetTime(tnew);
+	CString s = tnew.Format("%d.%m.%Y.");
+	trig = true;
 	*pResult = 0;
+	
 }
 
+BOOL DodajRadneSateDlg::OnInitDialog()
+{
+	CDialogEx::OnInitDialog();
+
+	Datum = m_Datum;
+
+	return TRUE;
+}
 
 void DodajRadneSateDlg::OnBnClickedButtonEditRadniNalog()
 {
@@ -122,13 +131,16 @@ void DodajRadneSateDlg::SpremiRadneSate()
 	PopisRadnihSatiDlg RecPopisSati;
 	PopisZaposlenikaDlg dlgPopisZaposlenika;
 	long iduciID = RecPopisSati.m_id;
-	SYSTEMTIME d;
+	CTime t = CTime::GetCurrentTime();
+	CString s = t.Format("%d.%m.%Y.");
+
+
 	UpdateData(TRUE);
 
 	CString RadniNalog;
 	m_RadniNalog.GetWindowText(RadniNalog);
 	CString Datum;
-	m_Date.GetWindowText(Datum);
+	//s.SetWindowText(Datum);
 	CString RadniSati;
 	m_BrojSati.GetWindowText(RadniSati);
 	CString Opis;
@@ -148,14 +160,20 @@ void DodajRadneSateDlg::SpremiRadneSate()
 	m_Datum.ParseDateTime(Datum);
 	RecSetRadniSati.m_id = iduciID;
 	RecSetRadniSati.m_Nalog = RadniNalog;
-	RecSetRadniSati.m_Datum = m_Datum;
+
+	if (trig == true) {
+		RecSetRadniSati.m_Datum = tnew;
+		trig = false;
+	}else
+		RecSetRadniSati.m_Datum = t;
+	
 	RecSetRadniSati.m_BrojRadnihSati = _wtol(RadniSati);
 	RecSetRadniSati.m_Opis = Opis;
 
 	RecSetRadniSati.Update();
 	RecSetRadniSati.Close();
-	//RecPopisSati.PokaziRadneSate();
+
 	EndDialog(IDOK);
-	//CDialogEx::OnOK();
+
 
 }
