@@ -39,4 +39,5 @@ public:
 	CString m_Opis;
 	afx_msg void OnBnClickedButtonUrediRadneSate();
 	afx_msg void OnBnClickedButtonDodajRadneSate();
+	long radnisati_ID = 0;
 };

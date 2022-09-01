@@ -40,6 +40,7 @@ public:
 	void PokaziSate();
 	afx_msg void OnBnClickedButtonRadniSati();
 	CString m_Datum;
+	CString s, radniSati, id;
 };
 
 

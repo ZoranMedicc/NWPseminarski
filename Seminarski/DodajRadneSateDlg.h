@@ -35,5 +35,6 @@ public:
 	COleDateTime m_Datum;
 	CDateTimeCtrl m_Date;
 	CDateTimeCtrl m_dateTimeCtrl;
+	long m_id=0;
 
 };

@@ -149,35 +149,6 @@ void PopisZaposlenikaDlg::OnBnClickedButtonUredi()
 	}
 }
 
-//void CPopisZaposlenikaDlg::PokaziSate()
-//{
-//	SetRadniSati RcSetRadniSati;
-//	RcSetRadniSati.Open();
-//
-//	while (!RcSetRadniSati.IsEOF())
-//	{
-//		const int index = ListCtrl.GetItemCount();
-//
-//		CTime datum = RcSetRadniSati.m_Datum;
-//		CString sDatum = datum.Format(_T("%d.%m.%Y."));
-//
-//		CString s, radniSati;
-//		s.Format(_T("%d"), RcSetRadniSati.m_id);
-//		radniSati.Format(_T("%d"), RcSetRadniSati.m_BrojRadnihSati);
-//		ListCtrl.InsertItem(index, s);
-//		ListCtrl.SetItemText(index, 1, sDatum);
-//		ListCtrl.SetItemText(index, 2, radniSati);
-//		ListCtrl.SetItemText(index, 3, RcSetRadniSati.m_Nalog);
-//		ListCtrl.SetItemText(index, 4, RcSetRadniSati.m_Opis);
-//
-//		RcSetRadniSati.MoveNext();
-//	}
-//
-//	RcSetRadniSati.Close();
-//
-//	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
-//}
-
 
 void PopisZaposlenikaDlg::OnBnClickedButtonRadniSati()
 {
@@ -185,7 +156,7 @@ void PopisZaposlenikaDlg::OnBnClickedButtonRadniSati()
 	PopisRadnihSatiDlg dlgPopisRadnihSati;
 	SetRadniSati RcSetRadniSati;
 
-	CString s, radniSati, id;
+	
 	radniSati.Format(_T("%d"), m_RadniSati);
 	id.Format(_T("%d"), m_zaposleniciID);
 

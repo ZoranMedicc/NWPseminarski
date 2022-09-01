@@ -9,6 +9,7 @@
 #include "PopisOdaberiRadniNalog.h"
 #include "SetRadniSati.h"
 #include "PopisRadnihSatiDlg.h"
+#include "PopisZaposlenikaDlg.h"
 
 
 // DodajRadneSate dialog
@@ -17,6 +18,7 @@ IMPLEMENT_DYNAMIC(DodajRadneSateDlg, CDialogEx)
 
 DodajRadneSateDlg::DodajRadneSateDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_DIALOG_DODAJ_RADNE_SATE, pParent)
+	, m_id(0)
 {
 
 }
@@ -118,7 +120,8 @@ void DodajRadneSateDlg::SpremiRadneSate()
 	// TODO: Add your control notification handler code here
 	SetRadniSati RecSetRadniSati;
 	PopisRadnihSatiDlg RecPopisSati;
-	long iduciID = 1;
+	PopisZaposlenikaDlg dlgPopisZaposlenika;
+	long iduciID = RecPopisSati.m_id;
 	SYSTEMTIME d;
 	UpdateData(TRUE);
 
@@ -138,7 +141,7 @@ void DodajRadneSateDlg::SpremiRadneSate()
 
 	if (!RecSetRadniSati.IsBOF() && !RecSetRadniSati.IsEOF())
 	{
-		iduciID = RecSetRadniSati.m_id;
+		iduciID = m_id;
 	}
 
 	RecSetRadniSati.AddNew();

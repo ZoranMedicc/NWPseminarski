@@ -80,7 +80,7 @@ void PopisRadnihSatiDlg::PokaziRadneSate()
 
 	while (!RecSetRadniSati.IsEOF())
 	{
-		long radnisati_ID = m_id;
+		radnisati_ID = m_id;
 
 		if (RecSetRadniSati.m_id == radnisati_ID)
 		{
@@ -154,6 +154,7 @@ void PopisRadnihSatiDlg::OnBnClickedButtonDodajRadneSate()
 {
 	// TODO: Add your control notification handler code here
 	DodajRadneSateDlg dlgNoviRadniSati;
+	dlgNoviRadniSati.m_id = m_id;
 	dlgNoviRadniSati.DoModal();
 	ListCtrl.DeleteAllItems();
 	PokaziRadneSate();
