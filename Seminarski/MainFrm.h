@@ -42,6 +42,7 @@ public:
 	afx_msg void OnZaposleniciPopis2();
 	afx_msg void OnZaposleniciDodaj();
 	afx_msg void OnRadninalogPopis();
+	afx_msg void OnRadninalogDodajnovi();
 };
 
 

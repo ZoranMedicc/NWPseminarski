@@ -6,6 +6,7 @@
 #include "afxdialogex.h"
 #include "PopisRadniNalogDlg.h"
 #include "SetRadniNalog.h"
+#include "DodajNoviRadniNalogDlg.h"
 
 // PopisRadniNalogDlg dialog
 
@@ -29,6 +30,7 @@ void PopisRadniNalogDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(PopisRadniNalogDlg, CDialogEx)
+	ON_BN_CLICKED(IDOK, &PopisRadniNalogDlg::OnBnClickedDodajNoviNalog)
 END_MESSAGE_MAP()
 
 
@@ -76,4 +78,13 @@ void PopisRadniNalogDlg::PokaziRadneNaloge()
 	}
 	RecSetRadniNalog.Close();
 	ListCtrl.SetExtendedStyle(LVS_EX_FULLROWSELECT);
+}
+
+void PopisRadniNalogDlg::OnBnClickedDodajNoviNalog()
+{
+	// TODO: Add your control notification handler code here
+	DodajNoviRadniNalogDlg dlgNoviNalog;
+	dlgNoviNalog.DoModal();
+	ListCtrl.DeleteAllItems();
+	PokaziRadneNaloge();
 }

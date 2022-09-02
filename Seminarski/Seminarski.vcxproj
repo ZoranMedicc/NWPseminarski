@@ -183,6 +183,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DodajNoviRadniNalogDlg.h" />
     <ClInclude Include="DodajRadneSateDlg.h" />
     <ClInclude Include="DodajRadnikaDlg.h" />
     <ClInclude Include="PopisZaposlenikaDlg.h" />
@@ -205,6 +206,7 @@
     <ClInclude Include="UrediRadnikaDlg.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DodajNoviRadniNalogDlg.cpp" />
     <ClCompile Include="DodajRadneSateDlg.cpp" />
     <ClCompile Include="DodajRadnikaDlg.cpp" />
     <ClCompile Include="PopisZaposlenikaDlg.cpp" />

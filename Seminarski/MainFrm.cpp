@@ -9,6 +9,7 @@
 #include "DodajRadnikaDlg.h"
 #include "MainFrm.h"
 #include "PopisRadniNalogDlg.h"
+#include "DodajNoviRadniNalogDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -23,6 +24,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_ZAPOSLENICI_POPIS, &CMainFrame::OnZaposleniciPopis2)
 	ON_COMMAND(ID_ZAPOSLENICI_DODAJ, &CMainFrame::OnZaposleniciDodaj)
 	ON_COMMAND(ID_RADNINALOG_POPIS, &CMainFrame::OnRadninalogPopis)
+	ON_COMMAND(ID_RADNINALOG_DODAJNOVI, &CMainFrame::OnRadninalogDodajnovi)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -127,4 +129,12 @@ void CMainFrame::OnRadninalogPopis()
 	// TODO: Add your command handler code here
 	PopisRadniNalogDlg PopisRadniNalogDlg;
 	PopisRadniNalogDlg.DoModal();
+}
+
+
+void CMainFrame::OnRadninalogDodajnovi()
+{
+	// TODO: Add your command handler code here
+	DodajNoviRadniNalogDlg DodajNoviNalogDlg;
+	DodajNoviNalogDlg.DoModal();
 }
