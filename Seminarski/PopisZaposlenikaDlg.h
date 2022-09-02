@@ -24,6 +24,8 @@ protected:
 public:
 	afx_msg void OnZaposleniciPopis();
 	BOOL OnInitDialog();
+
+
 	void PokaziTablicu();
 	void PokaziListu();
 	CListCtrl ListCtrl;

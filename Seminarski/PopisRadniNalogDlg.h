@@ -20,5 +20,13 @@ public:
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
+	BOOL OnInitDialog();
+
+	void PokaziListu();
+
+	void PokaziRadneNaloge();
+
 	DECLARE_MESSAGE_MAP()
+public:
+	CListCtrl ListCtrl;
 };

@@ -75,7 +75,7 @@ void PopisRadnihSatiDlg::PokaziRadneSate()
 
 	if (!RecSetRadniSati.IsOpen())
 	{
-		RecSetRadniSati.m_strSort = _T("[Datum] DESC");
+		RecSetRadniSati.m_strSort = _T("[Datum] DESC"); //sort list by date 
 		RecSetRadniSati.Open();
 	}
 
