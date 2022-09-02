@@ -29,7 +29,7 @@ public:
 	void OnBnClickedSpremi();
 	CEdit m_Opis;
 	CEdit m_BrojSati;
-	CEdit m_RadniNalog;
+	CString m_RadniNalog;
 	CEdit m_Datum2;
 	CButton m_edit_RadniNalog;
 	afx_msg void SpremiRadneSate();

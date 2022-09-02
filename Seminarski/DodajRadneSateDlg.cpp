@@ -33,7 +33,7 @@ void DodajRadneSateDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT_BROJ_SATI, m_BrojSati);
 	DDX_Control(pDX, IDC_EDIT_OPIS_POSLA, m_Opis);
 	DDX_Control(pDX, IDC_BUTTON_EDIT_RADNI_NALOG, m_edit_RadniNalog);
-	DDX_Control(pDX, IDC_EDIT_RADNI_NALOG, m_RadniNalog);
+	DDX_Text(pDX, IDC_EDIT_RADNI_NALOG, m_RadniNalog);
 
 	DDX_Control(pDX, IDC_DATETIMEPICKER_DATUM, m_Date);
 }
@@ -75,13 +75,12 @@ void DodajRadneSateDlg::OnBnClickedButtonEditRadniNalog()
 	UpdateData(TRUE);
 
 	PopisOdaberiRadniNalog dlgOdaberiRadniNalog;
-	CString strRadniNalog;
-	m_RadniNalog.GetWindowText(strRadniNalog);
-	dlgOdaberiRadniNalog.m_RadniNalog = strRadniNalog;
+	
+	dlgOdaberiRadniNalog.m_RadniNalog = m_RadniNalog;
 
 	if (dlgOdaberiRadniNalog.DoModal() == IDOK)
 	{
-		strRadniNalog = dlgOdaberiRadniNalog.m_RadniNalog;
+		m_RadniNalog = dlgOdaberiRadniNalog.m_RadniNalog;
 		
 		UpdateData(FALSE);
 	}
@@ -138,7 +137,7 @@ void DodajRadneSateDlg::SpremiRadneSate()
 	UpdateData(TRUE);
 
 	CString RadniNalog;
-	m_RadniNalog.GetWindowText(RadniNalog);
+	//m_RadniNalog.GetWindowText(RadniNalog);
 	CString Datum;
 	//s.SetWindowText(Datum);
 	CString RadniSati;
@@ -159,7 +158,7 @@ void DodajRadneSateDlg::SpremiRadneSate()
 	RecSetRadniSati.AddNew();
 	m_Datum.ParseDateTime(Datum);
 	RecSetRadniSati.m_id = iduciID;
-	RecSetRadniSati.m_Nalog = RadniNalog;
+	RecSetRadniSati.m_Nalog = m_RadniNalog;
 
 	if (trig == true) {
 		RecSetRadniSati.m_Datum = tnew;
