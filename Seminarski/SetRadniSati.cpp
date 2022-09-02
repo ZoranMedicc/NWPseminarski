@@ -1,6 +1,4 @@
-// PrimkeSet.h : Implementation of the PrimkeSet class
-
-// PrimkeSet implementation
+// SetRadniSati implementation
 
 
 #include "pch.h"

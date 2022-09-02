@@ -75,12 +75,15 @@ void PopisRadnihSatiDlg::PokaziRadneSate()
 
 	if (!RecSetRadniSati.IsOpen())
 	{
+		RecSetRadniSati.m_strSort = _T("[Datum] DESC");
 		RecSetRadniSati.Open();
 	}
 
 	while (!RecSetRadniSati.IsEOF())
 	{
 		radnisati_ID = m_id;
+		
+
 
 		if (RecSetRadniSati.m_id == radnisati_ID)
 		{
