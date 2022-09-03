@@ -8,6 +8,7 @@ public:
 	DECLARE_DYNAMIC(SetRadniSati)
 
 	long m_id;
+	long m_id_uniq;
 	CTime m_Datum;
 	long m_BrojRadnihSati;
 	CString m_Nalog;

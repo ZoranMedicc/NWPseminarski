@@ -8,6 +8,7 @@
 #include "PopisOdaberiRadniNalog.h"
 #include "SetRadniSati.h"
 #include <ctime>
+#include "PopisRadnihSatiDlg.h"
 
 
 // UrediRadneSate dialog
@@ -20,6 +21,7 @@ UrediRadneSateDlg::UrediRadneSateDlg(CWnd* pParent /*=nullptr*/)
 	, m_Opis(_T(""))
 	, m_RadniNalog(_T(""))
 	, m_Datum(COleDateTime::GetCurrentTime())
+	, m_id_uniq(0)
 {
 
 }
@@ -44,6 +46,7 @@ BEGIN_MESSAGE_MAP(UrediRadneSateDlg, CDialogEx)
 	ON_NOTIFY(DTN_DATETIMECHANGE, IDC_DATETIMEPICKER_DATUM, &UrediRadneSateDlg::OnDtnDatetimechangeDatetimepickerDatum)
 	ON_BN_CLICKED(IDOK, &UrediRadneSateDlg::OnBnClickedSpremi)
 	ON_BN_CLICKED(IDC_BUTTON_EDIT_RADNI_NALOG, &UrediRadneSateDlg::OnBnClickedButtonEditRadniNalog)
+	ON_BN_CLICKED(IDC_BUTTON_DELETE, &UrediRadneSateDlg::OnBnClickedButtonDelete)
 END_MESSAGE_MAP()
 
 
@@ -60,12 +63,12 @@ void UrediRadneSateDlg::OnDtnDatetimechangeDatetimepickerDatum(NMHDR* pNMHDR, LR
 BOOL UrediRadneSateDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
-
+	PopisRadnihSatiDlg dlgSati;
 	RadniNalog = m_RadniNalog;
 	Opis = m_Opis;
 	BrojSati = m_BrojSati;
 	Datum = m_Datum;
-
+	id_uniq = m_id_uniq;
 	return TRUE;
 }
 
@@ -88,7 +91,7 @@ void UrediRadneSateDlg::OnBnClickedSpremi()
 
 	while (!RecSetRadniSati.IsBOF() && !RecSetRadniSati.IsEOF())
 	{
-		if (Opis == RecSetRadniSati.m_Opis)
+		if (Opis == RecSetRadniSati.m_Opis )
 		{
 			RecSetRadniSati.Edit();
 
@@ -120,4 +123,31 @@ void UrediRadneSateDlg::OnBnClickedButtonEditRadniNalog()
 		m_RadniNalog = dlgOdaberiRadniNalog.m_RadniNalog;
 		UpdateData(FALSE);
 	}
+}
+
+
+void UrediRadneSateDlg::OnBnClickedButtonDelete()
+{
+	// TODO: Add your control notification handler code here
+	SetRadniSati RecSetRadniSati;
+	SYSTEMTIME d;
+	COleDateTime dt = m_Datum;
+	dt.GetAsSystemTime(d);
+	UpdateData(TRUE);
+
+	if (!RecSetRadniSati.IsOpen())
+	{
+		RecSetRadniSati.Open();
+	}
+
+	while (!RecSetRadniSati.IsBOF() && !RecSetRadniSati.IsEOF())
+	{
+		if (id_uniq == RecSetRadniSati.m_id_uniq)
+		{
+			RecSetRadniSati.Delete();
+			//RecSetRadniSati.MoveNext();
+		}
+		RecSetRadniSati.MoveNext();
+	}
+	EndDialog(IDOK);
 }

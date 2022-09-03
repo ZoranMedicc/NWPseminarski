@@ -14,7 +14,8 @@ SetRadniSati::SetRadniSati(CDatabase* pdb) : CRecordset(pdb)
 	long m_BrojRadnihSati = 0;
 	CString m_Nalog = _T("");
 	CString m_Opis = _T("");
-	m_nFields = 5;
+	long m_id_uniq = 0;
+	m_nFields = 6;
 	m_nDefaultType = dynaset;
 }
 
@@ -37,6 +38,7 @@ void SetRadniSati::DoFieldExchange(CFieldExchange* pFX)
 	RFX_Long(pFX, _T("[Broj radnih sati]"), m_BrojRadnihSati);
 	RFX_Text(pFX, _T("[Nalog]"), m_Nalog);
 	RFX_Text(pFX, _T("[Opis posla]"), m_Opis);
+	RFX_Long(pFX, _T("[ID]"), m_id_uniq);
 
 }
 /////////////////////////////////////////////////////////////////////////////

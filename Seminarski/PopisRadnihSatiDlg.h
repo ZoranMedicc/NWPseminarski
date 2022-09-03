@@ -31,6 +31,7 @@ public:
 	CListCtrl ListCtrl;
 
 	long m_id;
+	long m_id_uniq;
 	int id = 0;
 	CTime m_Datum;
 	CString m_Datum2;

@@ -38,5 +38,7 @@ public:
 	COleDateTime m_Datum;
 	COleDateTime Datum;
 	afx_msg void OnBnClickedButtonEditRadniNalog();
-
+	afx_msg void OnBnClickedButtonDelete();
+	long m_id_uniq;
+	long id_uniq;
 };

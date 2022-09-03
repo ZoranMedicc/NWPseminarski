@@ -51,7 +51,7 @@ void PopisRadniNalogDlg::PokaziListu()
 	CString s;
 
 	s.LoadString(IDS_STRING_ID_RADNI_NALOG);
-	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
+	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 100);
 	s.LoadString(IDS_STRING_RADNI_NALOG);
 	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 250);
 }

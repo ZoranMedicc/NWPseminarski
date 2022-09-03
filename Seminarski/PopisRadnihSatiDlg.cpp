@@ -21,6 +21,7 @@ IMPLEMENT_DYNAMIC(PopisRadnihSatiDlg, CDialogEx)
 PopisRadnihSatiDlg::PopisRadnihSatiDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_DIALOG_POPIS_RADNIH_SATI, pParent)
 	, m_id(0)
+	, m_id_uniq(0)
 {
 
 }
@@ -67,6 +68,8 @@ void PopisRadnihSatiDlg::PokaziListu()
 	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 200);
 	s.LoadString(IDS_STRING_OPIS);
 	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 200);
+	s.LoadString(IDS_STRING_ID_RADNI_SATI);
+	ListCtrl.InsertColumn(6, s, LVCFMT_CENTER, 100);
 }
 
 void PopisRadnihSatiDlg::PokaziRadneSate()
@@ -92,14 +95,17 @@ void PopisRadnihSatiDlg::PokaziRadneSate()
 			CTime datum = RecSetRadniSati.m_Datum;
 			CString sDatum = datum.Format(_T("%d/%m/%Y"));
 
-			CString s, radniSati;
+			CString s, radniSati, id, id_uniq;
 			s.Format(_T("%d"), RecSetRadniSati.m_id);
+			id_uniq.Format(_T("%d"), RecSetRadniSati.m_id_uniq);
 			radniSati.Format(_T("%d"), RecSetRadniSati.m_BrojRadnihSati);
 			ListCtrl.InsertItem(index, s);
 			ListCtrl.SetItemText(index, 1, sDatum);
 			ListCtrl.SetItemText(index, 2, radniSati);
 			ListCtrl.SetItemText(index, 3, RecSetRadniSati.m_Nalog);
 			ListCtrl.SetItemText(index, 4, RecSetRadniSati.m_Opis);
+			ListCtrl.SetItemText(index, 5, id_uniq);
+			
 		}
 		RecSetRadniSati.MoveNext();
 	}
@@ -113,9 +119,9 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 	UrediRadneSateDlg dlgUrediRadneSate;
 	SetRadniSati RcSetRadniSati;
 
-	CString s, radniSati, id;
+	CString s, radniSati, id, id_uniq;
 	radniSati.Format(_T("%d"), dlgUrediRadneSate.m_BrojSati);
-	//id.Format(_T("%d"), m_zaposleniciID);
+	//id_uniq.Format(_T("%d"), m_id_uniq);
 
 	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
 	if (pos == NULL)
@@ -133,6 +139,7 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 			radniSati = ListCtrl.GetItemText(nItem, 2);
 			m_Nalog = ListCtrl.GetItemText(nItem, 3);
 			m_Opis = ListCtrl.GetItemText(nItem, 4);
+			id_uniq = ListCtrl.GetItemText(nItem, 5);
 
 
 		}
@@ -145,6 +152,7 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 		dlgUrediRadneSate.m_BrojSati = radniSati;
 		dlgUrediRadneSate.m_RadniNalog = m_Nalog;
 		dlgUrediRadneSate.m_Opis = m_Opis;
+		dlgUrediRadneSate.m_id_uniq = _wtol(id_uniq);
 		//dlgUrediRadneSate.DoModal();
 	}
 	dlgUrediRadneSate.DoModal();

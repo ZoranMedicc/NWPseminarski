@@ -113,6 +113,7 @@ void CMainFrame::OnZaposleniciPopis2()
 	// TODO: Add your command handler code here
 	PopisZaposlenikaDlg PopisDlg;
 	PopisDlg.DoModal();
+
 }
 
 
