@@ -26,6 +26,7 @@
 #define IDD_DIALOG_UREDI_RADNE_SATE     318
 #define IDD_DIALOG_POPIS_ODABERI_RADNI_NALOG 320
 #define IDD_DIALOG_POPIS_RANDI_NALOG    322
+#define IDD_DIALOG_POPIS_RADNI_NALOG    322
 #define IDD_DIALOG_DODAJ_RADNE_SATE     324
 #define IDD_DIALOG_DODAJ_RADNI_NALOG    326
 #define IDD_DIALOG_UREDI_RADNI_NALOG    328
@@ -47,7 +48,6 @@
 #define IDC_EDIT1                       1011
 #define IDC_BUTTON_DELETE               1012
 #define IDC_BUTTON_DELETE_USER          1013
-#define IDC_BUTTON1                     1014
 #define IDC_BUTTON_EDIT                 1015
 #define ID_ZAPOSLENICI_POPIS            32771
 #define ID_ZAPOSLENICI_DODAJ            32772

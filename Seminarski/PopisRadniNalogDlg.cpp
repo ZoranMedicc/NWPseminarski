@@ -14,7 +14,7 @@
 IMPLEMENT_DYNAMIC(PopisRadniNalogDlg, CDialogEx)
 
 PopisRadniNalogDlg::PopisRadniNalogDlg(CWnd* pParent /*=nullptr*/)
-	: CDialogEx(IDD_DIALOG_POPIS_RANDI_NALOG, pParent)
+	: CDialogEx(IDD_DIALOG_POPIS_RADNI_NALOG, pParent)
 {
 
 }
