@@ -110,7 +110,6 @@ void CMainFrame::Dump(CDumpContext& dc) const
 
 void CMainFrame::OnZaposleniciPopis2()
 {
-	// TODO: Add your command handler code here
 	PopisZaposlenikaDlg PopisDlg;
 	PopisDlg.DoModal();
 
@@ -119,7 +118,6 @@ void CMainFrame::OnZaposleniciPopis2()
 
 void CMainFrame::OnZaposleniciDodaj()
 {
-	// TODO: Add your command handler code here
 	DodajRadnikaDlg DodajRadnikaDlg;
 	DodajRadnikaDlg.DoModal();
 }
@@ -127,7 +125,6 @@ void CMainFrame::OnZaposleniciDodaj()
 
 void CMainFrame::OnRadninalogPopis()
 {
-	// TODO: Add your command handler code here
 	PopisRadniNalogDlg PopisRadniNalogDlg;
 	PopisRadniNalogDlg.DoModal();
 }
@@ -135,7 +132,6 @@ void CMainFrame::OnRadninalogPopis()
 
 void CMainFrame::OnRadninalogDodajnovi()
 {
-	// TODO: Add your command handler code here
 	DodajNoviRadniNalogDlg DodajNoviNalogDlg;
 	DodajNoviNalogDlg.DoModal();
 }

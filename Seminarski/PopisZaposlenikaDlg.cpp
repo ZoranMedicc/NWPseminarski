@@ -110,7 +110,6 @@ void PopisZaposlenikaDlg::PokaziListu()
 
 void PopisZaposlenikaDlg::OnBnClickedDodajRadnika()
 {
-	// TODO: Add your control notification handler code here
 	DodajRadnikaDlg dlgNoviRadnik;
 	dlgNoviRadnik.DoModal();
 	ListCtrl.DeleteAllItems();
@@ -120,7 +119,6 @@ void PopisZaposlenikaDlg::OnBnClickedDodajRadnika()
 
 void PopisZaposlenikaDlg::OnBnClickedButtonUredi()
 {
-	// TODO: Add your control notification handler code here
 	UrediRadnikaDlg dlgUrediRadnika;
 	CString s;
 
@@ -155,7 +153,6 @@ void PopisZaposlenikaDlg::OnBnClickedButtonUredi()
 
 void PopisZaposlenikaDlg::OnBnClickedButtonRadniSati()
 {
-	// TODO: Add your control notification handler code here
 	PopisRadnihSatiDlg dlgPopisRadnihSati;
 	SetRadniSati RcSetRadniSati;
 

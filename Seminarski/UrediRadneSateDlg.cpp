@@ -56,7 +56,6 @@ END_MESSAGE_MAP()
 void UrediRadneSateDlg::OnDtnDatetimechangeDatetimepickerDatum(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	LPNMDATETIMECHANGE pDTChange = reinterpret_cast<LPNMDATETIMECHANGE>(pNMHDR);
-	// TODO: Add your control notification handler code here
 	*pResult = 0;
 }
 
@@ -75,7 +74,6 @@ BOOL UrediRadneSateDlg::OnInitDialog()
 
 void UrediRadneSateDlg::OnBnClickedSpremi()
 {
-	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
 	SetRadniSati RecSetRadniSati;
 	SYSTEMTIME d;
@@ -112,7 +110,6 @@ void UrediRadneSateDlg::OnBnClickedSpremi()
 
 void UrediRadneSateDlg::OnBnClickedButtonEditRadniNalog()
 {
-	// TODO: Add your control notification handler code here
 	UpdateData(TRUE);
 
 	PopisOdaberiRadniNalog dlgOdaberiRadniNalog;
@@ -128,7 +125,6 @@ void UrediRadneSateDlg::OnBnClickedButtonEditRadniNalog()
 
 void UrediRadneSateDlg::OnBnClickedButtonDelete()
 {
-	// TODO: Add your control notification handler code here
 	SetRadniSati RecSetRadniSati;
 	SYSTEMTIME d;
 	COleDateTime dt = m_Datum;
@@ -145,7 +141,6 @@ void UrediRadneSateDlg::OnBnClickedButtonDelete()
 		if (id_uniq == RecSetRadniSati.m_id_uniq)
 		{
 			RecSetRadniSati.Delete();
-			//RecSetRadniSati.MoveNext();
 		}
 		RecSetRadniSati.MoveNext();
 	}

@@ -1,5 +1,4 @@
 // CDodajRadnikaDlg.cpp : implementation file
-//
 
 #include "pch.h"
 #include "Seminarski.h"
@@ -44,10 +43,7 @@ END_MESSAGE_MAP()
 
 void DodajRadnikaDlg::OnBnClickedDodaj()
 {
-	// TODO: Add your control notification handler code here
 	CheckEmptySpace();
-	//UnesiNovogRadnika();
-	
 }
 
 void DodajRadnikaDlg::CheckEmptySpace() {

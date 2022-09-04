@@ -40,7 +40,6 @@ END_MESSAGE_MAP()
 
 void PopisOdaberiRadniNalog::OnBnClickedOdaberiRadniNalog()
 {
-	// TODO: Add your control notification handler code here
 	CString radniNalog, s;
 
 	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
@@ -74,7 +73,7 @@ BOOL PopisOdaberiRadniNalog::OnInitDialog()
 	s.LoadString(IDS_STRING_ID_RADNI_NALOG);
 	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 60);
 	s.LoadString(IDS_STRING_RADNI_NALOG);
-	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 250);
+	ListCtrl.InsertColumn(2, s, LVCFMT_LEFT, 250);
 
 
 	while (!RecSetRadniNalog.IsEOF())

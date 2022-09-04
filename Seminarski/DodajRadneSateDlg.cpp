@@ -115,17 +115,13 @@ void DodajRadneSateDlg::CheckEmptySpace() {
 
 void DodajRadneSateDlg::OnBnClickedSpremi()
 {
-	// TODO: Add your control notification handler code here
 	CheckEmptySpace();
-	//UnesiNovogRadnika();
-
 }
 
 
 
 void DodajRadneSateDlg::SpremiRadneSate()
 {
-	// TODO: Add your control notification handler code here
 	SetRadniSati RecSetRadniSati;
 	PopisRadnihSatiDlg RecPopisSati;
 	PopisZaposlenikaDlg dlgPopisZaposlenika;
@@ -137,9 +133,7 @@ void DodajRadneSateDlg::SpremiRadneSate()
 	UpdateData(TRUE);
 
 	CString RadniNalog;
-	//m_RadniNalog.GetWindowText(RadniNalog);
 	CString Datum;
-	//s.SetWindowText(Datum);
 	CString RadniSati;
 	m_BrojSati.GetWindowText(RadniSati);
 	CString Opis;
@@ -173,6 +167,4 @@ void DodajRadneSateDlg::SpremiRadneSate()
 	RecSetRadniSati.Close();
 
 	EndDialog(IDOK);
-
-
 }

@@ -62,9 +62,7 @@ BOOL DodajNoviRadniNalogDlg::OnInitDialog()
 
 void DodajNoviRadniNalogDlg::OnBnClickedSpremi()
 {
-	// TODO: Add your control notification handler code here
-	CheckEmptySpace();
-	//CDialogEx::OnOK();
+	CheckEmptySpace();;
 }
 
 void DodajNoviRadniNalogDlg::UnesiNovogRadniNalog()

@@ -115,13 +115,11 @@ void PopisRadnihSatiDlg::PokaziRadneSate()
 
 void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 {
-	// TODO: Add your control notification handler code here
 	UrediRadneSateDlg dlgUrediRadneSate;
 	SetRadniSati RcSetRadniSati;
 
 	CString s, radniSati, id, id_uniq;
 	radniSati.Format(_T("%d"), dlgUrediRadneSate.m_BrojSati);
-	//id_uniq.Format(_T("%d"), m_id_uniq);
 
 	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
 	if (pos == NULL)
@@ -143,9 +141,6 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 
 
 		}
-
-		//dlgUrediRadneSate.m_id = _wtol(id);
-
 		COleDateTime dt;
 		dt.ParseDateTime(m_Datum2, 0UL, 1024UL);
 		dlgUrediRadneSate.m_Datum = dt;
@@ -153,7 +148,6 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 		dlgUrediRadneSate.m_RadniNalog = m_Nalog;
 		dlgUrediRadneSate.m_Opis = m_Opis;
 		dlgUrediRadneSate.m_id_uniq = _wtol(id_uniq);
-		//dlgUrediRadneSate.DoModal();
 	}
 	dlgUrediRadneSate.DoModal();
 	ListCtrl.DeleteAllItems();
@@ -163,7 +157,6 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 
 void PopisRadnihSatiDlg::OnBnClickedButtonDodajRadneSate()
 {
-	// TODO: Add your control notification handler code here
 	DodajRadneSateDlg dlgNoviRadniSati;
 	dlgNoviRadniSati.m_id = m_id;
 	dlgNoviRadniSati.DoModal();

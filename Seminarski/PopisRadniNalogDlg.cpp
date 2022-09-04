@@ -82,7 +82,6 @@ void PopisRadniNalogDlg::PokaziRadneNaloge()
 
 void PopisRadniNalogDlg::OnBnClickedDodajNoviNalog()
 {
-	// TODO: Add your control notification handler code here
 	DodajNoviRadniNalogDlg dlgNoviNalog;
 	dlgNoviNalog.DoModal();
 	ListCtrl.DeleteAllItems();

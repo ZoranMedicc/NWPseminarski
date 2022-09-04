@@ -39,7 +39,6 @@ void UrediRadnikaDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(UrediRadnikaDlg, CDialogEx)
-	//ON_BN_CLICKED(IDOK, &UrediRadnikaDlg::OnBnClickedUredi)
 	ON_BN_CLICKED(IDOK, &UrediRadnikaDlg::OnBnClickedButtonUredi)
 END_MESSAGE_MAP()
 
@@ -63,7 +62,6 @@ BOOL UrediRadnikaDlg::OnInitDialog()
 
 void UrediRadnikaDlg::OnBnClickedButtonUredi()
 {
-	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
 
 	SetPopis RecSetRadnici;
