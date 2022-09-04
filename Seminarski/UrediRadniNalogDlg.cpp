@@ -47,7 +47,6 @@ BOOL UrediRadniNalogDlg::OnInitDialog()
 
 void UrediRadniNalogDlg::OnBnClickedOk()
 {
-	// TODO: Add your control notification handler code here
 	CDialogEx::OnOK();
 	SetRadniNalog RecSetRadniNalog;
 
@@ -76,7 +75,6 @@ void UrediRadniNalogDlg::OnBnClickedOk()
 
 void UrediRadniNalogDlg::OnBnClickedButtonDelete()
 {
-	// TODO: Add your control notification handler code here
 	SetRadniNalog RecSetRadniNalog;
 	UpdateData(TRUE);
 
