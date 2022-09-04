@@ -28,6 +28,7 @@
 #define IDD_DIALOG_POPIS_RANDI_NALOG    322
 #define IDD_DIALOG_DODAJ_RADNE_SATE     324
 #define IDD_DIALOG_DODAJ_RADNI_NALOG    326
+#define IDD_DIALOG_UREDI_RADNI_NALOG    328
 #define IDC_LIST1                       1000
 #define IDC_EDIT_IME                    1001
 #define IDC_BUTTON_UREDI                1002
@@ -45,6 +46,9 @@
 #define IDC_BUTTON_DODAJ_RADNE_SATE     1010
 #define IDC_EDIT1                       1011
 #define IDC_BUTTON_DELETE               1012
+#define IDC_BUTTON_DELETE_USER          1013
+#define IDC_BUTTON1                     1014
+#define IDC_BUTTON_EDIT                 1015
 #define ID_ZAPOSLENICI_POPIS            32771
 #define ID_ZAPOSLENICI_DODAJ            32772
 #define ID_RADNINALOG_POPIS             32773
@@ -54,9 +58,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        328
+#define _APS_NEXT_RESOURCE_VALUE        330
 #define _APS_NEXT_COMMAND_VALUE         32775
-#define _APS_NEXT_CONTROL_VALUE         1013
+#define _APS_NEXT_CONTROL_VALUE         1016
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

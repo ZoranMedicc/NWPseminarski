@@ -133,12 +133,13 @@ void PopisZaposlenikaDlg::OnBnClickedButtonUredi()
 		while (pos)
 		{
 			int nItem = ListCtrl.GetNextSelectedItem(pos);
+			id = ListCtrl.GetItemText(nItem, 0);
 			m_Ime = ListCtrl.GetItemText(nItem, 1);
 			m_Prezime = ListCtrl.GetItemText(nItem, 2);
 			m_Odjel = ListCtrl.GetItemText(nItem, 3);
 			m_RadnoMjesto = ListCtrl.GetItemText(nItem, 4);
 		}
-
+		dlgUrediRadnika.m_id = _wtol(id);
 		dlgUrediRadnika.m_Ime = m_Ime;
 		dlgUrediRadnika.m_Prezime = m_Prezime;
 		dlgUrediRadnika.m_Odjel = m_Odjel;

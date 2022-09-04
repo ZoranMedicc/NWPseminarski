@@ -34,4 +34,7 @@ public:
 	CString m_Odjel;
 	CString m_RadnoMjesto;
 	afx_msg void OnBnClickedButtonUredi();
+	afx_msg void OnBnClickedButtonDeleteUser();
+	long id;
+	long m_id;
 };

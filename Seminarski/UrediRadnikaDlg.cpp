@@ -20,6 +20,7 @@ UrediRadnikaDlg::UrediRadnikaDlg(CWnd* pParent /*=nullptr*/)
 	, m_Prezime(_T(""))
 	, m_Odjel(_T(""))
 	, m_RadnoMjesto(_T(""))
+	, m_id(0)
 {
 
 }
@@ -40,6 +41,7 @@ void UrediRadnikaDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(UrediRadnikaDlg, CDialogEx)
 	ON_BN_CLICKED(IDOK, &UrediRadnikaDlg::OnBnClickedButtonUredi)
+	ON_BN_CLICKED(IDC_BUTTON_DELETE_USER, &UrediRadnikaDlg::OnBnClickedButtonDeleteUser)
 END_MESSAGE_MAP()
 
 
@@ -49,7 +51,7 @@ END_MESSAGE_MAP()
 BOOL UrediRadnikaDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
-
+	id = m_id;
 	Ime = m_Ime;
 	Prezime = m_Prezime;
 	Odjel = m_Odjel;
@@ -75,7 +77,7 @@ void UrediRadnikaDlg::OnBnClickedButtonUredi()
 
 	while (!RecSetRadnici.IsBOF() && !RecSetRadnici.IsEOF())
 	{
-		if (Ime == RecSetRadnici.m_Ime)
+		if (id == RecSetRadnici.m_id)
 		{
 			RecSetRadnici.Edit();
 
@@ -88,6 +90,29 @@ void UrediRadnikaDlg::OnBnClickedButtonUredi()
 			break;
 		}
 		RecSetRadnici.MoveNext();
+	}
+	EndDialog(IDOK);
+}
+
+
+void UrediRadnikaDlg::OnBnClickedButtonDeleteUser()
+{
+	// TODO: Add your control notification handler code here
+	SetPopis RecSetZaposlenici;
+	UpdateData(TRUE);
+
+	if (!RecSetZaposlenici.IsOpen())
+	{
+		RecSetZaposlenici.Open();
+	}
+
+	while (!RecSetZaposlenici.IsBOF() && !RecSetZaposlenici.IsEOF())
+	{
+		if (id == RecSetZaposlenici.m_id)
+		{
+			RecSetZaposlenici.Delete();
+		}
+		RecSetZaposlenici.MoveNext();
 	}
 	EndDialog(IDOK);
 }

@@ -7,6 +7,7 @@
 #include "PopisRadniNalogDlg.h"
 #include "SetRadniNalog.h"
 #include "DodajNoviRadniNalogDlg.h"
+#include "UrediRadniNalogDlg.h"
 
 // PopisRadniNalogDlg dialog
 
@@ -31,6 +32,7 @@ void PopisRadniNalogDlg::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(PopisRadniNalogDlg, CDialogEx)
 	ON_BN_CLICKED(IDOK, &PopisRadniNalogDlg::OnBnClickedDodajNoviNalog)
+	ON_BN_CLICKED(IDC_BUTTON_EDIT, &PopisRadniNalogDlg::OnBnClickedButtonEdit)
 END_MESSAGE_MAP()
 
 
@@ -53,7 +55,7 @@ void PopisRadniNalogDlg::PokaziListu()
 	s.LoadString(IDS_STRING_ID_RADNI_NALOG);
 	ListCtrl.InsertColumn(1, s, LVCFMT_LEFT, 100);
 	s.LoadString(IDS_STRING_RADNI_NALOG);
-	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 250);
+	ListCtrl.InsertColumn(2, s, LVCFMT_LEFT, 250);
 }
 
 void PopisRadniNalogDlg::PokaziRadneNaloge()
@@ -86,4 +88,32 @@ void PopisRadniNalogDlg::OnBnClickedDodajNoviNalog()
 	dlgNoviNalog.DoModal();
 	ListCtrl.DeleteAllItems();
 	PokaziRadneNaloge();
+}
+
+
+void PopisRadniNalogDlg::OnBnClickedButtonEdit()
+{
+	UrediRadniNalogDlg dlgUrediRadniNalog;
+	CString s;
+
+	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
+	if (pos == NULL)
+	{
+		s.LoadString(IDS_STRING_OBAVEZAN_ODABIR);
+		MessageBox(s);
+	}
+	else
+	{
+		while (pos)
+		{
+			int nItem = ListCtrl.GetNextSelectedItem(pos);
+			m_id = ListCtrl.GetItemText(nItem, 0);
+			m_RadniNalog = ListCtrl.GetItemText(nItem, 1);
+		}
+		dlgUrediRadniNalog.m_id = _wtol(m_id);
+		dlgUrediRadniNalog.m_RadniNalog = m_RadniNalog;
+		dlgUrediRadniNalog.DoModal();
+		ListCtrl.DeleteAllItems();
+		PokaziRadneNaloge();
+	}
 }

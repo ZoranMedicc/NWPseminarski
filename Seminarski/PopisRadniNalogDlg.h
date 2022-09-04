@@ -30,4 +30,7 @@ protected:
 public:
 	CListCtrl ListCtrl;
 	afx_msg void OnBnClickedDodajNoviNalog();
+	afx_msg void OnBnClickedButtonEdit();
+	CString m_id;
+	CString m_RadniNalog;
 };

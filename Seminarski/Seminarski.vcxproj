@@ -204,6 +204,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="UrediRadneSateDlg.h" />
     <ClInclude Include="UrediRadnikaDlg.h" />
+    <ClInclude Include="UrediRadniNalogDlg.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DodajNoviRadniNalogDlg.cpp" />
@@ -229,6 +230,7 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="UrediRadneSateDlg.cpp" />
     <ClCompile Include="UrediRadnikaDlg.cpp" />
+    <ClCompile Include="UrediRadniNalogDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Seminarski.rc" />

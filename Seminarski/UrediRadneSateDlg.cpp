@@ -126,9 +126,6 @@ void UrediRadneSateDlg::OnBnClickedButtonEditRadniNalog()
 void UrediRadneSateDlg::OnBnClickedButtonDelete()
 {
 	SetRadniSati RecSetRadniSati;
-	SYSTEMTIME d;
-	COleDateTime dt = m_Datum;
-	dt.GetAsSystemTime(d);
 	UpdateData(TRUE);
 
 	if (!RecSetRadniSati.IsOpen())
