@@ -9,12 +9,6 @@ IMPLEMENT_DYNAMIC(SetRadniSati, CRecordset)
 
 SetRadniSati::SetRadniSati(CDatabase* pdb) : CRecordset(pdb)
 {
-	long m_id = 0;
-	CTime m_Datum;
-	long m_BrojRadnihSati = 0;
-	CString m_Nalog = _T("");
-	CString m_Opis = _T("");
-	long m_id_uniq = 0;
 	m_nFields = 6;
 	m_nDefaultType = dynaset;
 }

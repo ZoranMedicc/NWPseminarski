@@ -6,8 +6,6 @@ IMPLEMENT_DYNAMIC(SetRadniNalog, CRecordset)
 
 SetRadniNalog::SetRadniNalog(CDatabase* pdb) : CRecordset(pdb)
 {
-	long m_id = 0;
-	CString m_RadniNalog = _T("");
 	m_nFields = 2;
 	m_nDefaultType = dynaset;
 }
