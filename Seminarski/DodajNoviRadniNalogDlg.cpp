@@ -87,8 +87,8 @@ void DodajNoviRadniNalogDlg::UnesiNovogRadniNalog()
 	}
 
 	RecSetRadniNalog.AddNew();
-
-	RecSetRadniNalog.m_id = iduciID;
+	//RecSetRadniNalog.MoveLast();
+	//RecSetRadniNalog.m_id = iduciID;
 	RecSetRadniNalog.m_RadniNalog = RadniNalog;
 	
 	RecSetRadniNalog.Update();

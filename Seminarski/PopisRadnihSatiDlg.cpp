@@ -148,10 +148,12 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 		dlgUrediRadneSate.m_RadniNalog = m_Nalog;
 		dlgUrediRadneSate.m_Opis = m_Opis;
 		dlgUrediRadneSate.m_id_uniq = _wtol(id_uniq);
+
+		dlgUrediRadneSate.DoModal();
+		ListCtrl.DeleteAllItems();
+		PokaziRadneSate();
 	}
-	dlgUrediRadneSate.DoModal();
-	ListCtrl.DeleteAllItems();
-	PokaziRadneSate();
+	
 }
 
 
