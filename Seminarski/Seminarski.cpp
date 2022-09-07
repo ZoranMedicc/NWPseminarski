@@ -98,6 +98,7 @@ BOOL CSeminarskiApp::InitInstance()
 	m_pMainWnd->ShowWindow(SW_SHOW);
 	m_pMainWnd->UpdateWindow();
 	return TRUE;
+
 }
 
 // CSeminarskiApp message handlers

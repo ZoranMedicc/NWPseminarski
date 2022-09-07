@@ -23,7 +23,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	CListCtrl ListCtrl;
-	afx_msg void OnBnClickedOdaberiRadniNalog();
+	afx_msg
+
+	void OnBnClickedOdaberiRadniNalog();
 	BOOL OnInitDialog();
 	CString m_RadniNalog;
 };

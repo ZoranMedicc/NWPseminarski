@@ -6,7 +6,7 @@
 #include "afxdialogex.h"
 #include "PopisOdaberiRadniNalog.h"
 #include "SetRadniNalog.h"
-
+#include "stdafx.h"
 
 // PopisOdaberiRadniNalog dialog
 

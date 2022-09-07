@@ -23,6 +23,7 @@ public:
 
 // Implementation
 public:
+
 	virtual ~CMainFrame();
 #ifdef _DEBUG
 	virtual void AssertValid() const;

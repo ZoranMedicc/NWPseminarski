@@ -57,7 +57,7 @@ BOOL CSeminarskiView::PreCreateWindow(CREATESTRUCT& cs)
 
 // CSeminarskiView drawing
 
-void CSeminarskiView::OnDraw(CDC* /*pDC*/)
+void CSeminarskiView::OnDraw(CDC* pDC)
 {
 	CSeminarskiDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
@@ -65,6 +65,12 @@ void CSeminarskiView::OnDraw(CDC* /*pDC*/)
 		return;
 
 	// TODO: add draw code for native data here
+	CRect clientRect;
+	GetClientRect(clientRect);
+	pDC->FillSolidRect(clientRect, RGB(152, 152, 152));
+	pDC->TextOutW(300, 300, _T("SEMINARSKI RAD - ADMINISTRACIJA RADNIH SATI!"));
+	pDC->TextOutW(290, 500, _T("Upute - Za koristenje aplikacije koristite traku izbornika"));
+
 }
 
 
