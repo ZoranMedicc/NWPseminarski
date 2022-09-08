@@ -66,10 +66,13 @@ void CSeminarskiView::OnDraw(CDC* pDC)
 
 	// TODO: add draw code for native data here
 	CRect clientRect;
+	CString str_seminarski, str_seminarski_upute;
+	str_seminarski.Format(IDS_STRING_SEMINARSKI_RAD, 23);
+	str_seminarski_upute.Format(IDS_STRING_SEMINARSKI_RAD_UPUTE, 23);
 	GetClientRect(clientRect);
 	pDC->FillSolidRect(clientRect, RGB(152, 152, 152));
-	pDC->TextOutW(300, 300, _T("SEMINARSKI RAD - ADMINISTRACIJA RADNIH SATI!"));
-	pDC->TextOutW(290, 500, _T("Upute - Za koristenje aplikacije koristite traku izbornika"));
+	pDC->TextOutW(300, 300, str_seminarski);
+	pDC->TextOutW(290, 500, str_seminarski_upute);
 
 }
 

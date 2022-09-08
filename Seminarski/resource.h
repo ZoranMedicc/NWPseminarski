@@ -18,6 +18,8 @@
 #define IDS_STRING_DATUM                139
 #define IDS_STRING_ID_RADNI_NALOG       140
 #define IDS_STRING_ID_RADNI_SATI        141
+#define IDS_STRING_SEMINARSKI_RAD       142
+#define IDS_STRING_SEMINARSKI_RAD_UPUTE 143
 #define IDD_DIALOG_POPIS_ZAPOSLENKA     310
 #define IDD_DIALOG_DODAJ_RADNIKA        312
 #define IDD_DIALOG1                     314
