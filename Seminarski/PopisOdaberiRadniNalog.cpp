@@ -42,24 +42,21 @@ void PopisOdaberiRadniNalog::OnBnClickedOdaberiRadniNalog()
 {
 	CString radniNalog, s, id;
 
-	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
-	if (pos == NULL)
+	const int pos = ListCtrl.GetNextItem(-1, LVNI_SELECTED);
+	if (pos < NULL)
 	{
 		s.LoadString(IDS_STRING_OBAVEZAN_UNOS);
 		MessageBox(s);
 	}
-	else
+	else 
 	{
-		while (pos)
-		{
-			int nItem = ListCtrl.GetNextSelectedItem(pos);
-			id = ListCtrl.GetItemText(nItem, 0);
-			radniNalog = ListCtrl.GetItemText(nItem, 1);
-		}
+		id = ListCtrl.GetItemText(pos, 0);
+		radniNalog = ListCtrl.GetItemText(pos, 1);
+		m_id = id;
+		m_RadniNalog = radniNalog;
+		EndDialog(IDOK);
 	}
-	m_id = id;
-	m_RadniNalog = radniNalog;
-	EndDialog(IDOK);
+	
 }
 
 

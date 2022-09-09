@@ -121,27 +121,23 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 	CString s, radniSati, id, id_uniq, id_radninalog;
 	radniSati.Format(_T("%d"), dlgUrediRadneSate.m_BrojSati);
 
-	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
-	if (pos == NULL)
+	const int pos = ListCtrl.GetNextItem(-1, LVNI_SELECTED);
+	if (pos < NULL)
 	{
 		s.LoadString(IDS_STRING_OBAVEZAN_UNOS);
 		MessageBox(s);
 	}
 	else
 	{
-		while (pos)
-		{
-			int nItem = ListCtrl.GetNextSelectedItem(pos);
-			id = ListCtrl.GetItemText(nItem, 0);
-			m_Datum2 = ListCtrl.GetItemText(nItem, 1);
-			radniSati = ListCtrl.GetItemText(nItem, 2);
-			m_Nalog = ListCtrl.GetItemText(nItem, 3);
-			m_Opis = ListCtrl.GetItemText(nItem, 4);
-			id_uniq = ListCtrl.GetItemText(nItem, 5);
-			id_radninalog = ListCtrl.GetItemText(nItem, 6);
+		
+		id = ListCtrl.GetItemText(pos, 0);
+		m_Datum2 = ListCtrl.GetItemText(pos, 1);
+		radniSati = ListCtrl.GetItemText(pos, 2);
+		m_Nalog = ListCtrl.GetItemText(pos, 3);
+		m_Opis = ListCtrl.GetItemText(pos, 4);
+		id_uniq = ListCtrl.GetItemText(pos, 5);
+		id_radninalog = ListCtrl.GetItemText(pos, 6);
 
-
-		}
 		COleDateTime dt;
 		dt.ParseDateTime(m_Datum2, 0UL, 1024UL);
 		dlgUrediRadneSate.m_Datum = dt;
@@ -155,6 +151,8 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 		ListCtrl.DeleteAllItems();
 		PokaziRadneSate();
 	}
+
+	
 	
 }
 

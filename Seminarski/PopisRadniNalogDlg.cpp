@@ -93,20 +93,17 @@ void PopisRadniNalogDlg::OnBnClickedButtonEdit()
 	UrediRadniNalogDlg dlgUrediRadniNalog;
 	CString s;
 
-	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
-	if (pos == NULL)
+	const int pos = ListCtrl.GetNextItem(-1, LVNI_SELECTED);
+	if (pos < NULL)
 	{
 		s.LoadString(IDS_STRING_OBAVEZAN_ODABIR);
 		MessageBox(s);
 	}
 	else
 	{
-		while (pos)
-		{
-			int nItem = ListCtrl.GetNextSelectedItem(pos);
-			m_id = ListCtrl.GetItemText(nItem, 0);
-			m_RadniNalog = ListCtrl.GetItemText(nItem, 1);
-		}
+		m_id = ListCtrl.GetItemText(pos, 0);
+		m_RadniNalog = ListCtrl.GetItemText(pos, 1);
+		
 		dlgUrediRadniNalog.m_id = _wtol(m_id);
 		dlgUrediRadniNalog.m_RadniNalog = m_RadniNalog;
 		dlgUrediRadniNalog.DoModal();

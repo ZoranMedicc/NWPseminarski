@@ -164,26 +164,20 @@ void PopisZaposlenikaDlg::OnBnClickedButtonRadniSati()
 	CTime datum = dlgPopisRadnihSati.m_Datum;
 	CString sDatum = datum.Format(_T("%d.%m.%Y."));
 
-	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
-	if (pos == NULL)
+	const int pos = ListCtrl.GetNextItem(-1, LVNI_SELECTED);
+	if (pos < NULL)
 	{
 		s.LoadString(IDS_STRING_OBAVEZAN_ODABIR);
 		MessageBox(s);
 	}
 	else
 	{
-		while (pos)
-		{
-			int nItem = ListCtrl.GetNextSelectedItem(pos);
-			id = ListCtrl.GetItemText(nItem, 0);
-			sDatum = ListCtrl.GetItemText(nItem, 1);
-			radniSati = ListCtrl.GetItemText(nItem, 2);
-			m_Nalog = ListCtrl.GetItemText(nItem, 3);
-			m_Opis = ListCtrl.GetItemText(nItem, 4);
+		id = ListCtrl.GetItemText(pos, 0);
+		sDatum = ListCtrl.GetItemText(pos, 1);
+		radniSati = ListCtrl.GetItemText(pos, 2);
+		m_Nalog = ListCtrl.GetItemText(pos, 3);
+		m_Opis = ListCtrl.GetItemText(pos, 4);
 			
-
-		}
-
 		dlgPopisRadnihSati.m_id = _wtol(id);
 		dlgPopisRadnihSati.m_Datum = datum;
 		dlgPopisRadnihSati.m_BrojRadnihSati = m_RadniSati;
