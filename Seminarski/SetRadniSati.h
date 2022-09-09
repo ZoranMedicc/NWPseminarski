@@ -13,6 +13,7 @@ public:
 	long m_BrojRadnihSati;
 	CString m_Nalog;
 	CString m_Opis;
+	long m_id_radninalog;
 
 public:
 	virtual CString GetDefaultConnect();	// Default connection string

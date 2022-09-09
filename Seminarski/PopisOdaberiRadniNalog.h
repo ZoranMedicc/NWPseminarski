@@ -28,4 +28,5 @@ public:
 	void OnBnClickedOdaberiRadniNalog();
 	BOOL OnInitDialog();
 	CString m_RadniNalog;
+	CString m_id;
 };

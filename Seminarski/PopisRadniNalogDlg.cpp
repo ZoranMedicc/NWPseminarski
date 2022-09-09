@@ -62,10 +62,7 @@ void PopisRadniNalogDlg::PokaziRadneNaloge()
 {
 	SetRadniNalog RecSetRadniNalog;
 
-	if (!RecSetRadniNalog.IsOpen())
-	{
-		RecSetRadniNalog.Open();
-	}
+	RecSetRadniNalog.Open();
 
 	while (!RecSetRadniNalog.IsEOF())
 	{

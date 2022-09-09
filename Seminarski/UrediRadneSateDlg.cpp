@@ -47,6 +47,7 @@ BEGIN_MESSAGE_MAP(UrediRadneSateDlg, CDialogEx)
 	ON_BN_CLICKED(IDOK, &UrediRadneSateDlg::OnBnClickedSpremi)
 	ON_BN_CLICKED(IDC_BUTTON_EDIT_RADNI_NALOG, &UrediRadneSateDlg::OnBnClickedButtonEditRadniNalog)
 	ON_BN_CLICKED(IDC_BUTTON_DELETE, &UrediRadneSateDlg::OnBnClickedButtonDelete)
+//	ON_EN_UPDATE(IDC_EDIT_BROJ_SATI, &UrediRadneSateDlg::OnEnUpdateEditBrojSati)
 END_MESSAGE_MAP()
 
 
@@ -62,12 +63,12 @@ void UrediRadneSateDlg::OnDtnDatetimechangeDatetimepickerDatum(NMHDR* pNMHDR, LR
 BOOL UrediRadneSateDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
-	PopisRadnihSatiDlg dlgSati;
 	RadniNalog = m_RadniNalog;
 	Opis = m_Opis;
 	BrojSati = m_BrojSati;
 	Datum = m_Datum;
 	id_uniq = m_id_uniq;
+	id_radninalog = m_id_radninalog;
 	return TRUE;
 }
 
@@ -79,26 +80,32 @@ void UrediRadneSateDlg::OnBnClickedSpremi()
 	SYSTEMTIME d;
 	COleDateTime dt = m_Datum;
 	dt.GetAsSystemTime(d);
+	CString er;
 	
 	UpdateData(TRUE);
 
-	if (!RecSetRadniSati.IsOpen())
-	{
-		RecSetRadniSati.Open();
-	}
+	RecSetRadniSati.Open();
 
 	while (!RecSetRadniSati.IsBOF() && !RecSetRadniSati.IsEOF())
 	{
-		if (Opis == RecSetRadniSati.m_Opis )
+		if (id_uniq == RecSetRadniSati.m_id_uniq )
 		{
-			RecSetRadniSati.Edit();
-
-			RecSetRadniSati.m_Nalog = m_RadniNalog;
-			RecSetRadniSati.m_Opis = m_Opis;
-			RecSetRadniSati.m_BrojRadnihSati = _wtol(m_BrojSati);
-			RecSetRadniSati.m_Datum = CTime(d);
-
-			RecSetRadniSati.Update();
+			
+			if (_wtol(m_BrojSati) <= 0 || _wtol(m_BrojSati) > 24) {
+				er.LoadString(IDS_STRING_UNOS_SATI_ERR);
+				MessageBox(er);
+			}
+			else {
+				
+				RecSetRadniSati.Edit();
+				RecSetRadniSati.m_Nalog = m_RadniNalog;
+				RecSetRadniSati.m_Opis = m_Opis;
+				RecSetRadniSati.m_BrojRadnihSati = _wtol(m_BrojSati);
+				RecSetRadniSati.m_Datum = CTime(d);
+				RecSetRadniSati.m_id_radninalog = m_id_radninalog;
+				RecSetRadniSati.Update();
+				}
+			
 			break;
 		}
 		RecSetRadniSati.MoveNext();
@@ -118,6 +125,7 @@ void UrediRadneSateDlg::OnBnClickedButtonEditRadniNalog()
 	if (dlgOdaberiRadniNalog.DoModal() == IDOK)
 	{
 		m_RadniNalog = dlgOdaberiRadniNalog.m_RadniNalog;
+		m_id_radninalog = _wtol(dlgOdaberiRadniNalog.m_id);
 		UpdateData(FALSE);
 	}
 }
@@ -128,10 +136,7 @@ void UrediRadneSateDlg::OnBnClickedButtonDelete()
 	SetRadniSati RecSetRadniSati;
 	UpdateData(TRUE);
 
-	if (!RecSetRadniSati.IsOpen())
-	{
-		RecSetRadniSati.Open();
-	}
+	RecSetRadniSati.Open();
 
 	while (!RecSetRadniSati.IsBOF() && !RecSetRadniSati.IsEOF())
 	{
@@ -143,3 +148,4 @@ void UrediRadneSateDlg::OnBnClickedButtonDelete()
 	}
 	EndDialog(IDOK);
 }
+

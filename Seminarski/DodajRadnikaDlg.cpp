@@ -51,22 +51,20 @@ void DodajRadnikaDlg::CheckEmptySpace() {
 	CEdit* editBoxPrezime = (CEdit*)GetDlgItem(IDC_EDIT_PREZIME);
 	CEdit* editBoxOdjel = (CEdit*)GetDlgItem(IDC_EDIT_ODJEL);
 	CEdit* editBoxRadnoMjesto = (CEdit*)GetDlgItem(IDC_EDIT_RADNO_MJESTO);
-	
-
-	if (editBoxIme && editBoxPrezime && editBoxOdjel && editBoxOdjel && editBoxRadnoMjesto == NULL)
-		return;
+		
 	CString strIme;
-	editBoxIme->GetWindowTextW(strIme);
+	editBoxIme->GetWindowText(strIme);
 	CString strPrezime;
-	editBoxPrezime->GetWindowTextW(strPrezime);
+	editBoxPrezime->GetWindowText(strPrezime);
 	CString strOdjel;
-	editBoxOdjel->GetWindowTextW(strOdjel);
+	editBoxOdjel->GetWindowText(strOdjel);
 	CString strRadnoMjesto;
-	editBoxRadnoMjesto->GetWindowTextW(strRadnoMjesto);
-	CString s;
+	editBoxRadnoMjesto->GetWindowText(strRadnoMjesto);
+	CString s, er;
 	if (strIme.IsEmpty() || strPrezime.IsEmpty() || strOdjel.IsEmpty() || strRadnoMjesto.IsEmpty())
 	{
-		AfxMessageBox((IDS_STRING_OBAVEZAN_UNOS), MB_RETRYCANCEL);
+		er.LoadString(IDS_STRING_OBAVEZAN_UNOS);
+		MessageBox(er);
 	}
 	else
 		UnesiNovogRadnika();
@@ -90,10 +88,9 @@ void DodajRadnikaDlg::UnesiNovogRadnika()
 	CString RadnoMjesto;
 	m_RadnoMjesto.GetWindowText(RadnoMjesto);
 
-	if (!RecSetPopis.IsOpen())
-	{
-		RecSetPopis.Open();
-	}
+
+	RecSetPopis.Open();
+
 
 	if (!RecSetPopis.IsBOF() && !RecSetPopis.IsEOF())
 	{

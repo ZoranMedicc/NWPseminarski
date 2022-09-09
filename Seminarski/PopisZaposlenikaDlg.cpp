@@ -167,7 +167,7 @@ void PopisZaposlenikaDlg::OnBnClickedButtonRadniSati()
 	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
 	if (pos == NULL)
 	{
-		s.LoadString(IDS_STRING_OBAVEZAN_UNOS);
+		s.LoadString(IDS_STRING_OBAVEZAN_ODABIR);
 		MessageBox(s);
 	}
 	else

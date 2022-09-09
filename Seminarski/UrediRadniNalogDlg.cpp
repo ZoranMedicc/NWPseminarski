@@ -6,6 +6,7 @@
 #include "afxdialogex.h"
 #include "UrediRadniNalogDlg.h"
 #include "SetRadniNalog.h"
+#include "SetRadniSati.h"
 
 
 // UrediRadniNalogDlg dialog
@@ -52,10 +53,8 @@ void UrediRadniNalogDlg::OnBnClickedOk()
 
 	UpdateData(TRUE);
 
-	if (!RecSetRadniNalog.IsOpen())
-	{
-		RecSetRadniNalog.Open();
-	}
+	RecSetRadniNalog.Open();
+
 
 	while (!RecSetRadniNalog.IsBOF() && !RecSetRadniNalog.IsEOF())
 	{
@@ -76,12 +75,10 @@ void UrediRadniNalogDlg::OnBnClickedOk()
 void UrediRadniNalogDlg::OnBnClickedButtonDelete()
 {
 	SetRadniNalog RecSetRadniNalog;
+	SetRadniSati RecSetRadniSati;
 	UpdateData(TRUE);
 
-	if (!RecSetRadniNalog.IsOpen())
-	{
-		RecSetRadniNalog.Open();
-	}
+	RecSetRadniNalog.Open();
 
 	while (!RecSetRadniNalog.IsBOF() && !RecSetRadniNalog.IsEOF())
 	{
@@ -90,6 +87,7 @@ void UrediRadniNalogDlg::OnBnClickedButtonDelete()
 			RecSetRadniNalog.Delete();
 		}
 		RecSetRadniNalog.MoveNext();
+		//RecSetRadniSati.MoveNext();
 	}
 	EndDialog(IDOK);
 }

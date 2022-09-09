@@ -69,11 +69,7 @@ void UrediRadnikaDlg::OnBnClickedButtonUredi()
 	SetPopis RecSetRadnici;
 
 	UpdateData(TRUE);
-
-	if (!RecSetRadnici.IsOpen())
-	{
-		RecSetRadnici.Open();
-	}
+	RecSetRadnici.Open();
 
 	while (!RecSetRadnici.IsBOF() && !RecSetRadnici.IsEOF())
 	{
@@ -97,14 +93,10 @@ void UrediRadnikaDlg::OnBnClickedButtonUredi()
 
 void UrediRadnikaDlg::OnBnClickedButtonDeleteUser()
 {
-	// TODO: Add your control notification handler code here
 	SetPopis RecSetZaposlenici;
 	UpdateData(TRUE);
 
-	if (!RecSetZaposlenici.IsOpen())
-	{
-		RecSetZaposlenici.Open();
-	}
+	RecSetZaposlenici.Open();
 
 	while (!RecSetZaposlenici.IsBOF() && !RecSetZaposlenici.IsEOF())
 	{

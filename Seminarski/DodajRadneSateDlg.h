@@ -40,5 +40,8 @@ public:
 	COleDateTime Datum;
 	CTime tnew;
 	bool trig = false;
+	long m_id_radninalog;
 
+//	afx_msg void OnEnUpdateEditBrojSati();
+//	afx_msg void OnEnUpdateEditBrojSati();
 };

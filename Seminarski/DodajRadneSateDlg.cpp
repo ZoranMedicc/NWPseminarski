@@ -43,6 +43,8 @@ BEGIN_MESSAGE_MAP(DodajRadneSateDlg, CDialogEx)
 	ON_NOTIFY(DTN_DATETIMECHANGE, IDC_DATETIMEPICKER_DATUM, &DodajRadneSateDlg::OnDtnDatetimechangeDatetimepickerDatum)
 	ON_BN_CLICKED(IDC_BUTTON_EDIT_RADNI_NALOG, &DodajRadneSateDlg::OnBnClickedButtonEditRadniNalog)
 	ON_BN_CLICKED(IDOK, &DodajRadneSateDlg::OnBnClickedSpremi)
+//	ON_EN_UPDATE(IDC_EDIT_BROJ_SATI, &DodajRadneSateDlg::OnEnUpdateEditBrojSati)
+//ON_EN_UPDATE(IDC_EDIT_BROJ_SATI, &DodajRadneSateDlg::OnEnUpdateEditBrojSati)
 END_MESSAGE_MAP()
 
 
@@ -81,7 +83,7 @@ void DodajRadneSateDlg::OnBnClickedButtonEditRadniNalog()
 	if (dlgOdaberiRadniNalog.DoModal() == IDOK)
 	{
 		m_RadniNalog = dlgOdaberiRadniNalog.m_RadniNalog;
-		
+		m_id_radninalog = _wtol(dlgOdaberiRadniNalog.m_id);
 		UpdateData(FALSE);
 	}
 }
@@ -92,22 +94,20 @@ void DodajRadneSateDlg::CheckEmptySpace() {
 	CEdit* editBoxBrojSati = (CEdit*)GetDlgItem(IDC_EDIT_BROJ_SATI);
 	CEdit* editBoxOpis = (CEdit*)GetDlgItem(IDC_EDIT_OPIS_POSLA);
 
-
-	if (editBoxRadniNalog && editBoxDatum && editBoxBrojSati && editBoxOpis == NULL)
-		return;
 	CString strRadniNalog;
-	editBoxRadniNalog->GetWindowTextW(strRadniNalog);
+	editBoxRadniNalog->GetWindowText(strRadniNalog);
 	CString strDatum;
-	editBoxDatum->GetWindowTextW(strDatum);
+	editBoxDatum->GetWindowText(strDatum);
 	CString strBrojSati;
-	editBoxOpis->GetWindowTextW(strBrojSati);
+	editBoxOpis->GetWindowText(strBrojSati);
 	CString strOpis;
-	editBoxOpis->GetWindowTextW(strOpis);
+	editBoxOpis->GetWindowText(strOpis);
 
-	CString s;
+	CString s, er;
 	if (strRadniNalog.IsEmpty() || strDatum.IsEmpty() || strBrojSati.IsEmpty() || strOpis.IsEmpty())
 	{
-		AfxMessageBox((IDS_STRING_OBAVEZAN_UNOS), MB_RETRYCANCEL);
+		er.LoadString(IDS_STRING_OBAVEZAN_UNOS);
+		MessageBox(er);
 	}
 	else
 		SpremiRadneSate();
@@ -128,6 +128,7 @@ void DodajRadneSateDlg::SpremiRadneSate()
 	long iduciID = RecPopisSati.m_id;
 	CTime t = CTime::GetCurrentTime();
 	CString s = t.Format("%d.%m.%Y.");
+	CString er;
 
 
 	UpdateData(TRUE);
@@ -135,14 +136,14 @@ void DodajRadneSateDlg::SpremiRadneSate()
 	CString RadniNalog;
 	CString Datum;
 	CString RadniSati;
+
 	m_BrojSati.GetWindowText(RadniSati);
 	CString Opis;
 	m_Opis.GetWindowText(Opis);
 
-	if (!RecSetRadniSati.IsOpen())
-	{
-		RecSetRadniSati.Open();
-	}
+
+	RecSetRadniSati.Open();
+
 
 	if (!RecSetRadniSati.IsBOF() && !RecSetRadniSati.IsEOF())
 	{
@@ -159,12 +160,20 @@ void DodajRadneSateDlg::SpremiRadneSate()
 		trig = false;
 	}else
 		RecSetRadniSati.m_Datum = t;
+	if (_wtol(RadniSati) <= 0 || _wtol(RadniSati) > 24) {
+		er.LoadString(IDS_STRING_UNOS_SATI_ERR);
+		MessageBox(er);
+	}
+	else {
+		RecSetRadniSati.m_BrojRadnihSati = _wtol(RadniSati);
+		RecSetRadniSati.m_Opis = Opis;
+		RecSetRadniSati.m_id_radninalog = m_id_radninalog;
+		RecSetRadniSati.Update();
+		RecSetRadniSati.Close();
+
+		EndDialog(IDOK);
+	}
 	
-	RecSetRadniSati.m_BrojRadnihSati = _wtol(RadniSati);
-	RecSetRadniSati.m_Opis = Opis;
 
-	RecSetRadniSati.Update();
-	RecSetRadniSati.Close();
-
-	EndDialog(IDOK);
 }
+

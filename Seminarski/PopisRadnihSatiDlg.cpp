@@ -63,31 +63,29 @@ void PopisRadnihSatiDlg::PokaziListu()
 	s.LoadString(IDS_STRING_DATUM);
 	ListCtrl.InsertColumn(2, s, LVCFMT_CENTER, 150);
 	s.LoadString(IDS_STRING_BROJ_RADNIH_SATI);
-	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 100);
+	ListCtrl.InsertColumn(3, s, LVCFMT_CENTER, 110);
 	s.LoadString(IDS_STRING_RADNI_NALOG);
 	ListCtrl.InsertColumn(4, s, LVCFMT_CENTER, 200);
 	s.LoadString(IDS_STRING_OPIS);
 	ListCtrl.InsertColumn(5, s, LVCFMT_CENTER, 200);
 	s.LoadString(IDS_STRING_ID_RADNI_SATI);
 	ListCtrl.InsertColumn(6, s, LVCFMT_CENTER, 100);
+	s.LoadString(IDS_STRING_ID_RADNI_SATI);
+	ListCtrl.InsertColumn(7, s, LVCFMT_CENTER, 100);
 }
 
 void PopisRadnihSatiDlg::PokaziRadneSate()
 {
 	SetRadniSati RecSetRadniSati;
 
-	if (!RecSetRadniSati.IsOpen())
-	{
-		RecSetRadniSati.m_strSort = _T("[Datum] DESC"); //sort list by date 
-		RecSetRadniSati.Open();
-	}
+	RecSetRadniSati.m_strSort = _T("[Datum] DESC"); //sort list by date 
+	RecSetRadniSati.Open();
+
 
 	while (!RecSetRadniSati.IsEOF())
 	{
 		radnisati_ID = m_id;
 		
-
-
 		if (RecSetRadniSati.m_id == radnisati_ID)
 		{
 			id++;
@@ -95,9 +93,10 @@ void PopisRadnihSatiDlg::PokaziRadneSate()
 			CTime datum = RecSetRadniSati.m_Datum;
 			CString sDatum = datum.Format(_T("%d/%m/%Y"));
 
-			CString s, radniSati, id, id_uniq;
+			CString s, radniSati, id, id_uniq, id_radninalog;
 			s.Format(_T("%d"), RecSetRadniSati.m_id);
 			id_uniq.Format(_T("%d"), RecSetRadniSati.m_id_uniq);
+			id_radninalog.Format(_T("%d"), RecSetRadniSati.m_id_radninalog);
 			radniSati.Format(_T("%d"), RecSetRadniSati.m_BrojRadnihSati);
 			ListCtrl.InsertItem(index, s);
 			ListCtrl.SetItemText(index, 1, sDatum);
@@ -105,6 +104,7 @@ void PopisRadnihSatiDlg::PokaziRadneSate()
 			ListCtrl.SetItemText(index, 3, RecSetRadniSati.m_Nalog);
 			ListCtrl.SetItemText(index, 4, RecSetRadniSati.m_Opis);
 			ListCtrl.SetItemText(index, 5, id_uniq);
+			ListCtrl.SetItemText(index, 6, id_radninalog);
 			
 		}
 		RecSetRadniSati.MoveNext();
@@ -118,7 +118,7 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 	UrediRadneSateDlg dlgUrediRadneSate;
 	SetRadniSati RcSetRadniSati;
 
-	CString s, radniSati, id, id_uniq;
+	CString s, radniSati, id, id_uniq, id_radninalog;
 	radniSati.Format(_T("%d"), dlgUrediRadneSate.m_BrojSati);
 
 	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
@@ -138,6 +138,7 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 			m_Nalog = ListCtrl.GetItemText(nItem, 3);
 			m_Opis = ListCtrl.GetItemText(nItem, 4);
 			id_uniq = ListCtrl.GetItemText(nItem, 5);
+			id_radninalog = ListCtrl.GetItemText(nItem, 6);
 
 
 		}
@@ -148,6 +149,7 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 		dlgUrediRadneSate.m_RadniNalog = m_Nalog;
 		dlgUrediRadneSate.m_Opis = m_Opis;
 		dlgUrediRadneSate.m_id_uniq = _wtol(id_uniq);
+		dlgUrediRadneSate.m_id_radninalog = _wtol(id_radninalog);
 
 		dlgUrediRadneSate.DoModal();
 		ListCtrl.DeleteAllItems();

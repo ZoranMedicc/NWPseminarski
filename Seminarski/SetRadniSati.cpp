@@ -9,7 +9,7 @@ IMPLEMENT_DYNAMIC(SetRadniSati, CRecordset)
 
 SetRadniSati::SetRadniSati(CDatabase* pdb) : CRecordset(pdb)
 {
-	m_nFields = 6;
+	m_nFields = 7;
 	m_nDefaultType = dynaset;
 }
 
@@ -33,6 +33,7 @@ void SetRadniSati::DoFieldExchange(CFieldExchange* pFX)
 	RFX_Text(pFX, _T("[Nalog]"), m_Nalog);
 	RFX_Text(pFX, _T("[Opis posla]"), m_Opis);
 	RFX_Long(pFX, _T("[ID]"), m_id_uniq);
+	RFX_Long(pFX, _T("[ID_RadniNalog]"), m_id_radninalog);
 
 }
 /////////////////////////////////////////////////////////////////////////////

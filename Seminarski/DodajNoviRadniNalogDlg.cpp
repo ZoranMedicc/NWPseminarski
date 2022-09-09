@@ -42,12 +42,13 @@ void DodajNoviRadniNalogDlg::CheckEmptySpace() {
 
 	if (editBoxRadniNalog == NULL)
 		return;
-	CString strRadniNalog;
+	CString strRadniNalog, er;
 	editBoxRadniNalog->GetWindowTextW(strRadniNalog);
 	
 	if (strRadniNalog.IsEmpty())
 	{
-		AfxMessageBox((IDS_STRING_OBAVEZAN_UNOS), MB_RETRYCANCEL);
+		er.LoadString(IDS_STRING_UNOS_SATI_ERR);
+		MessageBox(er);
 	}
 	else
 		UnesiNovogRadniNalog();
@@ -76,10 +77,7 @@ void DodajNoviRadniNalogDlg::UnesiNovogRadniNalog()
 	CString RadniNalog;
 	m_RadniNalog.GetWindowText(RadniNalog);
 	
-	if (!RecSetRadniNalog.IsOpen())
-	{
-		RecSetRadniNalog.Open();
-	}
+	RecSetRadniNalog.Open();
 
 	if (!RecSetRadniNalog.IsBOF() && !RecSetRadniNalog.IsEOF())
 	{
@@ -88,7 +86,7 @@ void DodajNoviRadniNalogDlg::UnesiNovogRadniNalog()
 
 	RecSetRadniNalog.AddNew();
 	//RecSetRadniNalog.MoveLast();
-	//RecSetRadniNalog.m_id = iduciID;
+	RecSetRadniNalog.m_id = iduciID;
 	RecSetRadniNalog.m_RadniNalog = RadniNalog;
 	
 	RecSetRadniNalog.Update();

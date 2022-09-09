@@ -40,7 +40,7 @@ END_MESSAGE_MAP()
 
 void PopisOdaberiRadniNalog::OnBnClickedOdaberiRadniNalog()
 {
-	CString radniNalog, s;
+	CString radniNalog, s, id;
 
 	POSITION pos = ListCtrl.GetFirstSelectedItemPosition();
 	if (pos == NULL)
@@ -53,9 +53,11 @@ void PopisOdaberiRadniNalog::OnBnClickedOdaberiRadniNalog()
 		while (pos)
 		{
 			int nItem = ListCtrl.GetNextSelectedItem(pos);
+			id = ListCtrl.GetItemText(nItem, 0);
 			radniNalog = ListCtrl.GetItemText(nItem, 1);
 		}
 	}
+	m_id = id;
 	m_RadniNalog = radniNalog;
 	EndDialog(IDOK);
 }

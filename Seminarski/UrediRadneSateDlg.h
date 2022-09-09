@@ -41,4 +41,7 @@ public:
 	afx_msg void OnBnClickedButtonDelete();
 	long m_id_uniq;
 	long id_uniq;
+	long m_id_radninalog;
+	long id_radninalog;
+//	afx_msg void OnEnUpdateEditBrojSati();
 };
