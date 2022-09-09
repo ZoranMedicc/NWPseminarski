@@ -43,7 +43,7 @@ void DodajNoviRadniNalogDlg::CheckEmptySpace() {
 	if (editBoxRadniNalog == NULL)
 		return;
 	CString strRadniNalog, er;
-	editBoxRadniNalog->GetWindowTextW(strRadniNalog);
+	editBoxRadniNalog->GetWindowText(strRadniNalog);
 	
 	if (strRadniNalog.IsEmpty())
 	{
@@ -85,7 +85,6 @@ void DodajNoviRadniNalogDlg::UnesiNovogRadniNalog()
 	}
 
 	RecSetRadniNalog.AddNew();
-	//RecSetRadniNalog.MoveLast();
 	RecSetRadniNalog.m_id = iduciID;
 	RecSetRadniNalog.m_RadniNalog = RadniNalog;
 	

@@ -73,7 +73,6 @@ BOOL DodajRadneSateDlg::OnInitDialog()
 
 void DodajRadneSateDlg::OnBnClickedButtonEditRadniNalog()
 {
-	// TODO: Add your control notification handler code here
 	UpdateData(TRUE);
 
 	PopisOdaberiRadniNalog dlgOdaberiRadniNalog;

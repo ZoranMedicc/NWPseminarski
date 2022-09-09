@@ -30,7 +30,7 @@ END_MESSAGE_MAP()
 
 CSeminarskiView::CSeminarskiView() noexcept
 {
-	// TODO: add construction code here
+	
 
 }
 
@@ -49,9 +49,6 @@ void CSeminarskiView::OnInitialUpdate()
 
 BOOL CSeminarskiView::PreCreateWindow(CREATESTRUCT& cs)
 {
-	// TODO: Modify the Window class or styles here by modifying
-	//  the CREATESTRUCT cs
-
 	return CView::PreCreateWindow(cs);
 }
 
@@ -64,7 +61,6 @@ void CSeminarskiView::OnDraw(CDC* pDC)
 	if (!pDoc)
 		return;
 
-	// TODO: add draw code for native data here
 	CRect clientRect;
 	CString str_seminarski, str_seminarski_upute;
 	str_seminarski.Format(IDS_STRING_SEMINARSKI_RAD, 23);
