@@ -122,7 +122,7 @@ void PopisRadnihSatiDlg::OnBnClickedButtonUrediRadneSate()
 	radniSati.Format(_T("%d"), dlgUrediRadneSate.m_BrojSati);
 
 	const int pos = ListCtrl.GetNextItem(-1, LVNI_SELECTED);
-	if (pos < NULL)
+	if (pos < 0)
 	{
 		s.LoadString(IDS_STRING_OBAVEZAN_UNOS);
 		MessageBox(s);

@@ -94,7 +94,7 @@ void PopisRadniNalogDlg::OnBnClickedButtonEdit()
 	CString s;
 
 	const int pos = ListCtrl.GetNextItem(-1, LVNI_SELECTED);
-	if (pos < NULL)
+	if (pos < 0)
 	{
 		s.LoadString(IDS_STRING_OBAVEZAN_ODABIR);
 		MessageBox(s);
